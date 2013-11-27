@@ -1,0 +1,12 @@
+<script>
+  top.location.href = '<%= @auth.authorize_uri(canvas_url).html_safe %>';
+</script>
+
+
+http://stackoverflow.com/questions/3517960/facebook-opengraph-api-on-rails-fbgraph
+
+
+class CanvasController < ApplicationController
+  def show
+    redirect_to Facebook.config[:canvas_url]
+  end
