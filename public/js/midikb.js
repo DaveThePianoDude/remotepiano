@@ -196,13 +196,13 @@ function press(num, ch, vel){
 	source1.connect(context.destination);
 	source1.noteOn(0);
 	
-	alert('about to press');
+	//alert('about to press');
 	
-	// var noteX = 50 + num * 40;
-    	// var noteY = 800;
-    	// var noteColor = "rgb(200,0,0)";
+	 var noteX = 50 + num * 40;
+    	 var noteY = 800;
+    	 var noteColor = "rgb(200,0,0)";
 
-	// objArrayAdd(noteX, noteY, noteColor);
+	 objArrayAdd(noteX, noteY, noteColor);
 }
 
 function mouseKeyPress(num){
