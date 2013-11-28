@@ -281,6 +281,7 @@ var bufferLoader;
 var runtime;
 
 function init() {
+
   context = new webkitAudioContext();
   
   bufferLoader = new BufferLoader(
@@ -360,6 +361,8 @@ function init() {
 	}
 			
 	bufferLoader.load();
+	
+	animate();
 }
 
 function finishedLoading(bufferList) {
@@ -380,19 +383,34 @@ function finishedLoading(bufferList) {
 		<script src="js/replayer.js"></script>
 		<script src="js/audio.js"></script>
 		<script type="text/javascript">
-		  function draw(){
+		  
+			window.requestAnimFrame = (function(callback) {
+				
+				return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+				
+				function(callback) {
+					window.setTimeout(callback, 1000 / 60);
+				};
+			})();
+
+		  function animate() {
 		  
 			var canvas = document.getElementById('notescroll');
-			if (canvas.getContext){
-			  var ctx = canvas.getContext('2d');
-			  		  
-				ctx.fillStyle = "rgb(200,0,0)";
-				ctx.fillRect (10, 10, 55, 50);
+			var context = canvas.getContext('2d');
 
-				ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-				ctx.fillRect (30, 30, 55, 50);
-			}
+			// update
+
+			// clear
+			context.clearRect(0, 0, canvas.width, canvas.height);
+
+			// draw stuff
+
+			// request new frame
+			requestAnimFrame(function() {
+			  animate();
+			});
 		  }
+		  
 		</script>
 		<script>
 			function loadRemote(path, callback) {
@@ -544,8 +562,6 @@ function finishedLoading(bufferList) {
                 var delta = this.maxVal - this.minVal,
                     newStatus = 'ok';
                 
-
-
                 if (this._status !== newStatus) {
                     // Update the highlight class if status is changed
                     Dom.replaceClass(this._highlight,this._status,newStatus);
