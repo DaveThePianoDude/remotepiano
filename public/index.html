@@ -347,8 +347,18 @@ function init() {
     finishedLoading
     );
 
-	alert('Done creating loader.  Wait till you hear the chimes!');
+	var canvas = document.getElementById('notescroll');
 	
+	if (canvas.getContext){
+	  var ctx = canvas.getContext('2d');
+			  
+		ctx.fillStyle = "rgb(200,0,0)";
+		ctx.fillRect (10, 10, 55, 50);
+
+		ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+		ctx.fillRect (30, 30, 55, 50);
+	}
+			
 	bufferLoader.load();
 }
 
@@ -574,7 +584,7 @@ function finishedLoading(bufferList) {
 <!--END SOURCE CODE FOR EXAMPLE =============================== -->
 
 	</head>
-	<body onload="draw();">
+	<body>
 		
 		<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
 			<span id="demo_highlight"></span>
