@@ -561,17 +561,18 @@ function finishedLoading(bufferList) {
 
 	</head>
 	<body>
-	<a color="white" href="javascript:void(play('minute_waltz.mid'))">Chopin - Waltz Op.61 (Minute Waltz)</a> |
+		
+		<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
+			<span id="demo_highlight"></span>
+			<div id="demo_min_thumb"><img src="assets/l-thumb-round.gif"></div>
+			<div id="demo_max_thumb"><img src="assets/r-thumb-round.gif"></div>
+		</div>
+		<div id='d1' style="position:absolute; top:280px; left:0px; z-index:1">  
+			<canvas id="notescroll" width="1200" height="400" ></canvas>
+		</div>
+		
 	</body>
 	
-<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
-    <span id="demo_highlight"></span>
-    <div id="demo_min_thumb"><img src="assets/l-thumb-round.gif"></div>
-    <div id="demo_max_thumb"><img src="assets/r-thumb-round.gif"></div>
-</div>
-
-
-
 <iframe src="songlist.html" height="50%" width="90%" style="position:absolute;Left:5%;bottom:-10;top: 40%" > 
 >You need a Frames Capable browser to view this content.</iframe> 
 </html>
