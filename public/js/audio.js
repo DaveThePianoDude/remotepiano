@@ -38,7 +38,9 @@ function AudioPlayer(generator, opts) {
 			}
 		}
 	} else if (webkitAudio) {
+
 //		console.log('WEBKIT');
+
 		// Uses Webkit Web Audio API if available
 		var context = new webkitAudio();
 		sampleRate = context.sampleRate;
@@ -46,13 +48,9 @@ function AudioPlayer(generator, opts) {
 		var channelCount = 2;
 		var bufferSize = 4096*4; // Higher for less gitches, lower for less latency
 		
-//		var node = context.createJavaScriptNode(bufferSize, 0, channelCount);
-		
-//		node.onaudioprocess = function(e) { process(e) };
-
 		function process(e) {
 			if (generator.finished) {
-//				node.disconnect();
+
 				return;
 			}
 			
@@ -68,12 +66,11 @@ function AudioPlayer(generator, opts) {
 		}
 		
 		// start
-//		node.connect(context.destination);
 		
 		return {
 			'stop': function() {
 				// pause
-//				node.disconnect();
+
 				requestStop = true;
 			},
 			'type': 'Webkit Audio'
