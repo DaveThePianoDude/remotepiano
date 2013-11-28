@@ -42,6 +42,48 @@ label.hidden {
 
 <script type="text/javascript">
 
+//---------------------------------------------------------------------+
+// Code for Object  FiFo Queue 
+//---------------------------------------------------------------------+
+
+function RisingNoteObject(x, y, color)
+{
+	this.x = x;
+	this.y = y;
+	this.color = color;
+} 
+ 
+var RisingNoteArray = new Array();
+ 
+function objArrayAdd(xToAdd,yToAdd, colorToAdd) {
+     
+   newRisingNote = new RisingNoteObject(xToAdd,yToAdd,colorToAdd);  
+   RisingNoteArray.push(newRisingNote);
+   
+   alert('added note');
+}
+ 
+function objArrayGet() {
+
+   var retrievedRisingNote = new RisingNoteObject();
+   retrievedRisingNote = RisingNoteArray.shift(); 
+     
+   if(retrievedRisingNote) {
+      return retrievedRisingNote.x + ":" + 
+             retrievedRisingNote.y + ":" + retrievedRisingNote.color;
+   }
+   
+   else {
+      return "RisingNoteArray is empty.";
+   }
+   
+}
+
+//---------------------------------------------------------------------+
+// Code for Recording Events 
+//---------------------------------------------------------------------+
+
+
 var recording = false;
 var recordedEvents = [];
 var sequenceIndex = 0;
