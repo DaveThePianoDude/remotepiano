@@ -369,6 +369,21 @@ function finishedLoading(bufferList) {
 		<script src="js/synth.js"></script>
 		<script src="js/replayer.js"></script>
 		<script src="js/audio.js"></script>
+		<script type="text/javascript">
+		  function draw(){
+		  
+			var canvas = document.getElementById('notescroll');
+			if (canvas.getContext){
+			  var ctx = canvas.getContext('2d');
+			  		  
+				ctx.fillStyle = "rgb(200,0,0)";
+				ctx.fillRect (10, 10, 55, 50);
+
+				ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+				ctx.fillRect (30, 30, 55, 50);
+			}
+		  }
+		</script>
 		<script>
 			function loadRemote(path, callback) {
 				var fetch = new XMLHttpRequest();
@@ -560,7 +575,7 @@ function finishedLoading(bufferList) {
 <!--END SOURCE CODE FOR EXAMPLE =============================== -->
 
 	</head>
-	<body>
+	<body onload="draw();" >
 		
 		<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
 			<span id="demo_highlight"></span>
@@ -573,6 +588,4 @@ function finishedLoading(bufferList) {
 		
 	</body>
 	
-<iframe src="songlist.html" height="50%" width="90%" style="position:absolute;Left:5%;bottom:-10;top: 40%" > 
->You need a Frames Capable browser to view this content.</iframe> 
 </html>
