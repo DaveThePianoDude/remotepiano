@@ -60,7 +60,7 @@ function objArrayAdd(xToAdd,yToAdd, colorToAdd) {
    newRisingNote = new RisingNoteObject(xToAdd,yToAdd,colorToAdd);  
    RisingNoteArray.push(newRisingNote);
    
-   alert('added note');
+   alert(RisingNoteArray.length);
 }
  
 function objArrayGet() {
@@ -355,10 +355,10 @@ function init() {
 	  var ctx = canvas.getContext('2d');
 			  
 		ctx.fillStyle = "rgb(200,0,0)";
-		ctx.fillRect (10, 10, 55, 50);
-
-		ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-		ctx.fillRect (30 + 30 * RisingNoteArray.length, 30, 55, 50);
+		
+		var yPos = 10 + RisingNoteArray.length * 10'
+		
+		ctx.fillRect (10, yPos, 55, 50);
 	}
 			
 	bufferLoader.load();
