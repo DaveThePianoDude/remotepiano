@@ -347,26 +347,7 @@ function init() {
     ],
     finishedLoading
     );
-
-	var canvas = document.getElementById('notescroll');
 	
-	if (canvas.getContext) {
-	
-		var ctx = canvas.getContext('2d');
-			  
-		ctx.fillStyle = "rgb(200,0,0)";
-		
-		for (var i = 0; i < RisingNoteArray.length; i++) {
-
-			var yPos = 10 + RisingNoteArray[i].y;
-		
-			ctx.fillRect (RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 50);
-		
-			RisingNoteArray[i].y -= 4;
-		}
-	
-	}
-			
 	bufferLoader.load();
 	
 	animate();
@@ -412,7 +393,7 @@ function finishedLoading(bufferList) {
 
 			// draw stuff
 			var canvas = document.getElementById('notescroll');
-				
+			
 			if (canvas.getContext) {
 			
 				var ctx = canvas.getContext('2d');
@@ -420,10 +401,12 @@ function finishedLoading(bufferList) {
 				ctx.fillStyle = "rgb(200,0,0)";
 				
 				for (var i = 0; i < RisingNoteArray.length; i++) {
-							
+						
+					alert ('GOT HERE');
+						
 					ctx.fillRect(RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 50);
 				
-					//RisingNoteArray[i].y = RisingNoteArray[i] - 4;
+					RisingNoteArray[i].y = RisingNoteArray[i] - 4;
 				}
 			
 			}
