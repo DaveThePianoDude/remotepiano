@@ -197,7 +197,7 @@ function press(num, ch, vel){
 	source1.noteOn(0);
 	
 	var noteX = 50 + (num -23) * 30;
-    var noteY = 800;
+    var noteY = 350;
     var noteColor = "rgb(200,0,0)";
 
 	objArrayAdd(noteX, noteY, noteColor);
