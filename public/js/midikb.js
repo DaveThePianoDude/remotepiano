@@ -196,7 +196,7 @@ function press(num, ch, vel){
 	source1.connect(context.destination);
 	source1.noteOn(0);
 	
-	var noteX = 50 + (num -23) * 40;
+	var noteX = 50 + (num -23) * 30;
     var noteY = 800;
     var noteColor = "rgb(200,0,0)";
 

@@ -420,13 +420,10 @@ function finishedLoading(bufferList) {
 				ctx.fillStyle = "rgb(200,0,0)";
 				
 				for (var i = 0; i < RisingNoteArray.length; i++) {
+							
+					ctx.fillRect(RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 50);
 				
-					alert (RisingNoteArray[i].x);
-					alert (RisingNoteArrau[i].y);
-				
-					ctx.fillRect (RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 50);
-				
-					RisingNoteArray[i].y =  RisingNoteArray[i] - 4;
+					//RisingNoteArray[i].y = RisingNoteArray[i] - 4;
 				}
 			
 			}
