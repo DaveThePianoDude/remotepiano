@@ -181,11 +181,11 @@ function release(num, ch){
 function press(num, ch, vel){
 
 	var i = pressedKeys.indexOf(num);
-
 	
 	if (num < 0 || i !== -1){
 		return;
 	}
+	
 	pressedKeys.push(num);
 	keys.item(num).addClass('pressed');
 	onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
@@ -196,7 +196,7 @@ function press(num, ch, vel){
 	source1.connect(context.destination);
 	source1.noteOn(0);
 	
-	var noteX = 50 + num * 40;
+	var noteX = 50 + (num -23) * 40;
     var noteY = 800;
     var noteColor = "rgb(200,0,0)";
 
