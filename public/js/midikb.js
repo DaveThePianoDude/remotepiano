@@ -287,7 +287,7 @@ function press(num, ch, vel){
 	
 	var noteX = 50 + (num -23) * 30;
     var noteY = 350;
-    var noteColor = colorWheel[num - 23];
+    var noteColor = colorWheel[(num - 23)*2];
 
 	objArrayAdd(noteX, noteY, noteColor);
 }
