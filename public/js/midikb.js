@@ -177,7 +177,7 @@ function release(num, ch){
 	onmidievent(new MidiEvent(ch || channel, 8, num, 0));
 }
 
-var colorWheel = {
+var colorWheel = [
 
 		'rgb(255,0,110)',
 		'rgb(255,0,94)',
@@ -265,7 +265,7 @@ var colorWheel = {
 		'rgb(196,0,255)',
 		'rgb(212,0,255)',
 		'rgb(228,0,255)'
-	}
+	];
 
 function press(num, ch, vel){
 
