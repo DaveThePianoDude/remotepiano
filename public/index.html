@@ -55,12 +55,11 @@ function RisingNoteObject(x, y, color)
  
 var RisingNoteArray = new Array();
  
-function objArrayAdd(xToAdd,yToAdd, colorToAdd) {
+function objArrayAdd(xToAdd, yToAdd, colorToAdd) {
      
-   newRisingNote = new RisingNoteObject(xToAdd,yToAdd,colorToAdd);  
-   RisingNoteArray.push(newRisingNote);
+   var newRisingNote = new RisingNoteObject(xToAdd, yToAdd, colorToAdd);  
    
-   alert(RisingNoteArray.length);
+   RisingNoteArray.push(newRisingNote);
 }
  
 function objArrayGet() {
@@ -270,8 +269,10 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
 }
 
 BufferLoader.prototype.load = function() {
+
   for (var i = 0; i < this.urlList.length; ++i)
-  this.loadBuffer(this.urlList[i], i);
+  
+	this.loadBuffer(this.urlList[i], i);
 }
 
 window.onload = init;
@@ -406,7 +407,7 @@ function finishedLoading(bufferList) {
 						
 					ctx.fillRect(RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 50);
 				
-					RisingNoteArray[i].y = RisingNoteArray[i] - 4;
+					RisingNoteArray[i].y = RisingNoteArray[i].y - 4;
 				}
 			
 			}
