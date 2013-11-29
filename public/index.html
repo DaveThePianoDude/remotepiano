@@ -396,13 +396,12 @@ function finishedLoading(bufferList) {
 				if (canvas.getContext) {
 				
 					var ctx = canvas.getContext('2d');
-						  
-					ctx.fillStyle = "rgb(200,0,0)";
-					
+						  					
 					for (var i = 0; i < RisingNoteArray.length; i++) {
 							
-						alert ('x=' + RisingNoteArray[i].x + 'y=' + RisingNoteArray[i].y );
+						//alert ('x=' + RisingNoteArray[i].x + 'y=' + RisingNoteArray[i].y );
 							
+						ctx.fillStyle = RisingNoteArray[i].color;
 						ctx.fillRect(RisingNoteArray[i].x, RisingNoteArray[i].y, 55, 30);
 					
 						RisingNoteArray[i].y = RisingNoteArray[i].y - 5;
@@ -411,7 +410,6 @@ function finishedLoading(bufferList) {
 						
 							objArrayGet();
 					}
-				
 				}
 
 				requestAnimFrame(function() {
