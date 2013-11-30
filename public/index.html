@@ -82,7 +82,6 @@ function objArrayGet() {
 // Code for Recording Events 
 //---------------------------------------------------------------------+
 
-
 var recording = false;
 var recordedEvents = [];
 var sequenceIndex = 0;
@@ -274,6 +273,7 @@ BufferLoader.prototype.load = function() {
 }
 
 window.onload = init;
+
 var context;
 var bufferLoader;
 
@@ -282,6 +282,8 @@ var runtime;
 function init() {
 
   context = new webkitAudioContext();
+  
+  if (context) alert ('found webkit audio context');
   
   bufferLoader = new BufferLoader(
     context,
@@ -518,7 +520,6 @@ function finishedLoading(bufferList) {
         padding: 0 1ex;
     }
 </style>
-
 
 		<script src="js/jin.js"></script>
 		<script src="js/jin-gestures.js"></script>
