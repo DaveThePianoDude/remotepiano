@@ -491,6 +491,7 @@ function midiDeviceList(xml){
 		if (type !== 'input'){
 			return;
 		}
+		alert('pushing a device');
 		availableDevs.push({
 			id: id,
 			type: type,
