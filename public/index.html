@@ -366,6 +366,8 @@ function finishedLoading(bufferList) {
 
 </script>
 
+<script src="js/howler.js"></script>
+
 <script src="stream.js"></script>
 		<script src="js/midifile.js"></script>
 		<script src="js/synth.js"></script>
@@ -419,6 +421,7 @@ function finishedLoading(bufferList) {
 		  }
 		  
 		</script>
+		
 		<script>
 			function loadRemote(path, callback) {
 				var fetch = new XMLHttpRequest();
@@ -455,69 +458,70 @@ function finishedLoading(bufferList) {
 			}
 		</script>
 
-<link rel="stylesheet" type="text/css" href="../../build/fonts/fonts-min.css" />
-<link rel="stylesheet" type="text/css" href="../../build/slider/assets/skins/sam/slider.css" />
-<script type="text/javascript" src="../../build/yahoo-dom-event/yahoo-dom-event.js"></script>
-<script type="text/javascript" src="../../build/dragdrop/dragdrop-min.js"></script>
-<script type="text/javascript" src="../../build/slider/slider-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../build/fonts/fonts-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../build/slider/assets/skins/sam/slider.css" />
+		
+		<script type="text/javascript" src="../../build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="../../build/dragdrop/dragdrop-min.js"></script>
+		<script type="text/javascript" src="../../build/slider/slider-min.js"></script>
 
-<!--begin custom header content for this example-->
-<style type="text/css">
-    #demo_bg {
-        position: relative;
-        background: url(../slider/assets/dual_thumb_bg_big.gif) 0 5px no-repeat;
-        height: 28px;
-        width: 910px;
-    }
+		<!--begin custom header content for this example-->
+		<style type="text/css">
+			#demo_bg {
+				position: relative;
+				background: url(../slider/assets/dual_thumb_bg_big.gif) 0 5px no-repeat;
+				height: 28px;
+				width: 910px;
+			}
 
-    #demo_bg div {
-        position: absolute;
-        cursor: default;
-        top: 4px;
-    }
+			#demo_bg div {
+				position: absolute;
+				cursor: default;
+				top: 4px;
+			}
 
-    #demo_bg span {
-        position: absolute;
-        background: url(../slider/assets/dual_thumb_highlight.gif) 0 0 repeat-x;
-        _font-size: 5px; /* prevent IE6 expanding the box height to font-size */
-        top: 10px;
-        left: 12px;
-        height: 13px;
-        width: 900px;
-    }
+			#demo_bg span {
+				position: absolute;
+				background: url(../slider/assets/dual_thumb_highlight.gif) 0 0 repeat-x;
+				_font-size: 5px; /* prevent IE6 expanding the box height to font-size */
+				top: 10px;
+				left: 12px;
+				height: 13px;
+				width: 900px;
+			}
 
-    #demo_bg .caution {
-        background-position: 0 -13px;
-    }
-    #demo_bg .boom,
-    #demo_bg .danger {
-        background-position: 0 -26px;
-    }
-    p .ok {
-        color: #3a3;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    p .caution {
-        background: #ff3;
-        color: #770;
-        font-weight: bold;
-        font-style: italic;
-        padding: 0 1ex;
-        text-transform: uppercase;
-    }
-    p .danger {
-        color: #f33;
-        font-weight: bold;
-        text-decoration: blink;
-        text-transform: uppercase;
-    }
-    p .boom {
-        color: #fff;
-        background: #000;
-        padding: 0 1ex;
-    }
-</style>
+			#demo_bg .caution {
+				background-position: 0 -13px;
+			}
+			#demo_bg .boom,
+			#demo_bg .danger {
+				background-position: 0 -26px;
+			}
+			p .ok {
+				color: #3a3;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			p .caution {
+				background: #ff3;
+				color: #770;
+				font-weight: bold;
+				font-style: italic;
+				padding: 0 1ex;
+				text-transform: uppercase;
+			}
+			p .danger {
+				color: #f33;
+				font-weight: bold;
+				text-decoration: blink;
+				text-transform: uppercase;
+			}
+			p .boom {
+				color: #fff;
+				background: #000;
+				padding: 0 1ex;
+			}
+		</style>
 
 		<script src="js/jin.js"></script>
 		<script src="js/jin-gestures.js"></script>
@@ -536,7 +540,6 @@ function finishedLoading(bufferList) {
 			<canvas id="notescroll" width="1200" height="500" ></canvas>
 		</div>
 		
-	</body>
-	
+	</body>	
 
 </html>

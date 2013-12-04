@@ -281,9 +281,15 @@ function press(num, ch, vel){
  
 	// play a note
 	var source1 = context.createBufferSource();
+	
 	source1.buffer = this.bufferLoader.bufferList[num-23];
+	
 	source1.connect(context.destination);
-	source1.noteOn(0);
+	//source1.noteOn(0);
+	
+	var sound = new Howl({
+		urls: ['../mp3/PIANO_LOUD_A2s.mp3']
+	}).play();
 	
 	var noteX = 50 + (num -23) * 30;
     var noteY = 350;
@@ -299,7 +305,7 @@ function mouseKeyPress(num){
 	release(mkey);
 	mkey = num;
 	press(num);
-//	alert('mousekey');
+	
 }
 
 function touching(e){
