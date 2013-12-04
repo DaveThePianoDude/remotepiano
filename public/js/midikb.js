@@ -573,7 +573,7 @@ function initJava(){
 		height:		'1',
 		MAYSCRIPT:	''
 	}), talkToFlash = window.talkToFlash = function(command, params){ // These are used to hack in to the system of midijava, we don't actually use flash.
-		alert('inside talkToFlash');
+
 		
 		switch(command){
 		
