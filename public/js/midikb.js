@@ -282,31 +282,34 @@ var colorWheel = [
 
 function press(num, ch, vel){
 
-	// var i = pressedKeys.indexOf(num);
+	 var i = pressedKeys.indexOf(num);
 	
-	// if (num < 0 || i !== -1){
+	 if (num < 0 || i !== -1){
 		// return;
-	// }
+	 }
 	
-	// pressedKeys.push(num);
-	// keys.item(num).addClass('pressed');
-	// onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
+	 pressedKeys.push(num);
+
+	 keys.item(num).addClass('pressed');
+
+	 onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
  
-	// // play a note
-	// var source1 = context.createBufferSource();
+	 // play a note
+	 var source1 = context.createBufferSource();
 	
-	// source1.buffer = this.bufferLoader.bufferList[num-23];
+	 source1.buffer = this.bufferLoader.bufferList[num-23];
 	
-	// source1.connect(context.destination);
-	// //source1.noteOn(0);
+	 source1.connect(context.destination);
+
+	 source1.noteOn(0);
 	
-	var sound = new Howl({
-		urls: ['mp3/PIANO_LOUD_A2s.mp3']
-	}).play();
+	//var sound = new Howl({
+	//	urls: ['mp3/PIANO_LOUD_A2s.mp3']
+	//}).play();
 	
 	var noteX = 50 + (num -23) * 30;
-    var noteY = 350;
-    var noteColor = colorWheel[(num - 23)*2];
+    	var noteY = 350;
+    	var noteColor = colorWheel[(num - 23)*2];
 
 	objArrayAdd(noteX, noteY, noteColor);
 }
