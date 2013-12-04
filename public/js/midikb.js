@@ -288,7 +288,7 @@ function press(num, ch, vel){
 	//source1.noteOn(0);
 	
 	var sound = new Howl({
-		urls: ['../mp3/PIANO_LOUD_A2s.mp3']
+		urls: ['mp3/PIANO_LOUD_A2s.mp3']
 	}).play();
 	
 	var noteX = 50 + (num -23) * 30;
