@@ -61,12 +61,15 @@ var	isKeyFlat	= [false, true, false, true, false, false, true, false, true, fals
 	removeClass	= Jin.removeClass;
 
 function isIn(needle, haystack){
+
 	var i, l = haystack.length;
+	
 	for (i=0; i<l; i++){
 		if (needle === haystack[i]){
 			return true;
 		}
 	}
+	
 	return false;
 }
 
@@ -92,7 +95,7 @@ function settings(){
 		elem.innerHTML = '&lt;select a device&gt;';
 		devSelect.appendChild(elem);
 		
-		for(i=0; i<l; i++){
+		for(i=0; i < l; i++){
 			elem = create('option', {
 				value: availableDevs[i].id
 			});
@@ -123,7 +126,9 @@ function settings(){
 }
 
 function updateArguments(){
+
 	var cmd = Jin.commandLine.id;
+	
 	if (cmd('noAnimation') || cmd('lightMode') || settings.noAnimation){
 		Jin.addClass(document.body, 'noAnimation');
 	} else {
@@ -160,20 +165,28 @@ function pitchBend(am){
 }
 
 function setPitchBend(val){
+
 	pitchBendAmount = val * 16383;
+	
 	var	firstByte	= Math.floor(pitchBendAmount / 128),
 		secondByte	= Math.floor(pitchBendAmount - firstByte * 128),
 		midiEv		= new MidiEvent(channel, 14, firstByte, secondByte);
+		
 	onmidievent(midiEv);
 }
 
 function release(num, ch){
+
 	var i = pressedKeys.indexOf(num);
+	
 	if (num < 0 || i === -1){
 		return;
 	}
+	
 	pressedKeys.splice(i, 1);
+	
 	keys.item(num).removeClass('pressed');
+	
 	onmidievent(new MidiEvent(ch || channel, 8, num, 0));
 }
 
@@ -269,23 +282,23 @@ var colorWheel = [
 
 function press(num, ch, vel){
 
-	var i = pressedKeys.indexOf(num);
+	// var i = pressedKeys.indexOf(num);
 	
-	if (num < 0 || i !== -1){
-		return;
-	}
+	// if (num < 0 || i !== -1){
+		// return;
+	// }
 	
-	pressedKeys.push(num);
-	keys.item(num).addClass('pressed');
-	onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
+	// pressedKeys.push(num);
+	// keys.item(num).addClass('pressed');
+	// onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
  
-	// play a note
-	var source1 = context.createBufferSource();
+	// // play a note
+	// var source1 = context.createBufferSource();
 	
-	source1.buffer = this.bufferLoader.bufferList[num-23];
+	// source1.buffer = this.bufferLoader.bufferList[num-23];
 	
-	source1.connect(context.destination);
-	//source1.noteOn(0);
+	// source1.connect(context.destination);
+	// //source1.noteOn(0);
 	
 	var sound = new Howl({
 		urls: ['mp3/PIANO_LOUD_A2s.mp3']
@@ -309,7 +322,9 @@ function mouseKeyPress(num){
 }
 
 function touching(e){
+
 	var i, key, newTouches = [];
+	
 	for (i=0; i < e.touches.length; i++){
 		key = keys.indexOf(e.touches[i].target);
 		if (key === -1){
@@ -317,23 +332,28 @@ function touching(e){
 		}
 		newTouches[i] = key;
 	}
+	
 	for (i=0; i < touchedKeys.length; i++){
 		if (!isIn(touchedKeys[i], newTouches)){
 			release(touchedKeys[i]);
 		}
 	}
+	
 	for (i=0; i < newTouches.length; i++){
 		if (!isIn(newTouches[i], touchedKeys)){
 			press(newTouches[i]);
 		}
 	}
+	
 	touchedKeys = newTouches;
+	
 	if (e.preventDefault){
 		e.preventDefault();
 	}
 }
 
 function keyboardParamDown(num){
+
 	if (num === 40) {
 		pitchBend(-200);
 	} else if (num === 38) {
@@ -341,30 +361,37 @@ function keyboardParamDown(num){
 	} else {
 		return false;
 	}
+	
 	return true;
 }
 
 function keyboardParamUp(num){
+
 	if (num === 40 || num === 38){
 		pitchBend();
 	} else {
 		return false;
 	}
+	
 	return true;
 }
 
 function keyboardPress(num, oct){
+
 	if (keymap[num]){
 		press(keymap[num] + oct * 12);
 		return true;
 	}
+	
 }
 
 function keyboardRelease(num, oct){
+
 	if (keymap[num]){
 		release(keymap[num] + oct * 12);
 		return true;
 	}
+	
 }
 
 function MidiEvent(channel, status, data1, data2){
@@ -377,12 +404,14 @@ function MidiEvent(channel, status, data1, data2){
 }
 
 function createKeys(i){
-	for (i=0; i<128; i++){
+	for (i=0; i < 128; i++){
+	
 		keys.push(create());
 		keys[i].className = 'key ' + (isKeyFlat[i % 12] ? 'black' : 'white');
 		keys[i].title = keyNames[i % 12] + ' ' + Math.floor(i / 12);
 		keys[i].id = 'key_' + i;
 		container.appendChild(keys[i]);
+		
 	}
 }
 
