@@ -521,6 +521,7 @@ function doBindings(){
 }
 
 function midiDeviceList(xml){
+
 	availableDevs = [];
 	xml.replace(/<device id='([^']*)' type='([^']*)' available='([^']*)'><name><!\[CDATA\[([\w ]*) \| ([\w ]*)\]\]><\/name><\/device>/g, function(xml, id, type, available, device, port){
 		if (type !== 'input'){
@@ -535,6 +536,7 @@ function midiDeviceList(xml){
 			port: port
 		});
 	});
+	
 }
 
 function midiDeviceMessage(xml){
@@ -559,6 +561,7 @@ function midiDeviceMessage(xml){
 }
 
 function initJava(){
+
 	var appletObject = create('applet', {
 		name:		'midiApplet',
 		code:		'net.abumarkub.midi.applet.MidiApplet',
@@ -567,8 +570,10 @@ function initJava(){
 		height:		'1',
 		MAYSCRIPT:	''
 	}), talkToFlash = window.talkToFlash = function(command, params){ // These are used to hack in to the system of midijava, we don't actually use flash.
+		alert('inside talkToFlash');
+		
 		switch(command){
-
+		
 			case 'midi-connection-started': // Connection OK, working, so get devices.
 				talkToJava('get-devices');
 				break;
@@ -582,6 +587,7 @@ function initJava(){
 	}, talkToJava = window.talkToJava = function(command, params){
 		appletObject.executeJavaMethod(command, params);
 	};
+	
 	document.body.appendChild(appletObject);
 }
 
