@@ -687,8 +687,10 @@
 			//// Callback function
 			function midiProc(t,a,b,c){
 							
+				var hush = 'mp3/PIANO_LOUD_A2s.mp3';
+							
 				var sound = new Howl({
-					urls: ['mp3/PIANO_LOUD_A2s.mp3']
+					urls: [hush]
 				}).play();
 										 
 				var noteX = 50 + (parseInt(b,16) - 23) * 25;
