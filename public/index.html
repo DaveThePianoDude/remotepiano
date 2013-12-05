@@ -686,20 +686,21 @@
 			// Callback function
 			function midiProc(t,a,b,c){
 			
-				alert(a);
-			
-				var ind = b - 23;
-				var hush = filePaths[ind];
+				if (a > 128) // Variable 'a' can have two values: 144 (note ON) and 128 (not OFF).  We want it to sound for note ON only.
+				{
+					var ind = b - 23;
+					var hush = filePaths[ind];
 
-				var sound = new Howl({
-					urls: [hush]
-				}).play();
-										 
-				var noteX = 50 + ind * 24;
-				var noteY = 350;
-				var noteColor = colorWheel[ind*2];
+					var sound = new Howl({
+						urls: [hush]
+					}).play();
+											 
+					var noteX = 50 + ind * 24;
+					var noteY = 350;
+					var noteColor = colorWheel[ind*2];
 
-				objArrayAdd(noteX, noteY, noteColor);	
+					objArrayAdd(noteX, noteY, noteColor);
+				}				
 			}
 			
 			//// Listbox
