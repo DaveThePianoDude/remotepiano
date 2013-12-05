@@ -42,7 +42,6 @@ var	isKeyFlat	= [false, true, false, true, false, false, true, false, true, fals
 	],
 	container,
 	settingButton,
-	helpButton,
 	keyboard,
 	pitchWheel,
 	modWheel,
