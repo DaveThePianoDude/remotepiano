@@ -283,8 +283,8 @@ var colorWheel = [
 	//// Callback function
 	function midiProc(t,a,b,c){
 	
-		msg.innerHTML=msg.innerHTML+midiString(a,b,c)+"<br>";
-		msg.scrollTop=msg.scrollHeight;
+		//msg.innerHTML=msg.innerHTML+midiString(a,b,c)+"<br>";
+		//msg.scrollTop=msg.scrollHeight;
 		 
 		alert(b);
 		 
