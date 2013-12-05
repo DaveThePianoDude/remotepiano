@@ -280,6 +280,43 @@ var colorWheel = [
 		'rgb(228,0,255)'
 	];
 
+	//// Callback function
+	function midiProc(t,a,b,c){
+	 msg.innerHTML=msg.innerHTML+midiString(a,b,c)+"<br>";
+	 msg.scrollTop=msg.scrollHeight;
+	}
+	
+	function midiString(a,b,c){
+	 var cmd=Math.floor(a/16);
+	 var note=['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'][b%12]+Math.floor(b/12);
+	 a=a.toString(16);
+	 b=(b<16?'0':'')+b.toString(16);
+	 c=(c<16?'0':'')+c.toString(16);
+	 var str=a+" "+b+" "+c+"    ";
+	 if(cmd==8){
+	  str+="Note Off   "+note;
+	 }
+	 else if(cmd==9){
+	  str+="Note On    "+note;
+	 }
+	 else if(cmd==10){
+	  str+="Aftertouch "+note;
+	 }
+	 else if(cmd==11){
+	  str+="Control    "+b;
+	 }
+	 else if(cmd==12){
+	  str+="Program    "+b;
+	 }
+	 else if(cmd==13){
+	  str+="Aftertouch";
+	 }
+	 else if(cmd==14){
+	  str+="Pitch Wheel";
+	 }
+	 return str;
+	}
+	
 function press(num, ch, vel){
 
 	 var i = pressedKeys.indexOf(num);
