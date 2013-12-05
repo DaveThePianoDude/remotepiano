@@ -17,7 +17,7 @@
 
 		<tr>
 			<td><label id = "caveat">You need the Google Chrome browser to experience this site.</label></td>
-			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">Help</button>
+			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">?</button>
 			
 			</td>
 		</tr>
@@ -683,14 +683,15 @@
 					'wav/PIANO_LOUD_D7s.wav'
 			];
 				
+
 			//// Callback function
 			function midiProc(t,a,b,c){
-						
+							
 				var sound = new Howl({
-					urls: [filePaths[(parseInt(b,16)]]
+					urls: ['mp3/PIANO_LOUD_A2s.mp3']
 				}).play();
 										 
-				var noteX = 50 + (parseInt(b,16) - 23) * 22;
+				var noteX = 50 + (parseInt(b,16) - 23) * 25;
 				var noteY = 350;
 				var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
 
