@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+	
 		<title>Virtual Midi Keyboard</title>
 		<link rel="stylesheet" href="css/midikb.css" />
 
@@ -75,339 +76,340 @@
 
 	</style>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
-//---------------------------------------------------------------------+
-// Code for Object  FiFo Queue 
-//---------------------------------------------------------------------+
+		//---------------------------------------------------------------------+
+		// Code for Object  FiFo Queue 
+		//---------------------------------------------------------------------+
 
-function RisingNoteObject(x, y, color)
-{
-	this.x = x;
-	this.y = y;
-	this.color = color;
-} 
- 
-var RisingNoteArray = new Array();
- 
-function objArrayAdd(xToAdd, yToAdd, colorToAdd) {
-     
-   var newRisingNote = new RisingNoteObject(xToAdd, yToAdd, colorToAdd);  
-   
-   RisingNoteArray.push(newRisingNote);
-}
- 
-function objArrayGet() {
-
-   var retrievedRisingNote = new RisingNoteObject();
-   retrievedRisingNote = RisingNoteArray.shift(); 
-     
-   if(retrievedRisingNote) {
-      return retrievedRisingNote.x + ":" + 
-             retrievedRisingNote.y + ":" + retrievedRisingNote.color;
-   }
-   
-   else {
-      return "RisingNoteArray is empty.";
-   }
-   
-}
-
-//---------------------------------------------------------------------+
-// Code for Recording Events 
-//---------------------------------------------------------------------+
-
-var recording = false;
-var recordedEvents = [];
-var sequenceIndex = 0;
-
-function myTurn()
-{
-	recording = true;
-	recordedEvents = [];
-	sequenceIndex = 0;
-}
-
-function help()
-{
-}
-
-var BrowserDetect = {
-	init: function () {
-		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
-		this.version = this.searchVersion(navigator.userAgent)
-			|| this.searchVersion(navigator.appVersion)
-			|| "an unknown version";
-		this.OS = this.searchString(this.dataOS) || "an unknown OS";
-	},
-	searchString: function (data) {
-		for (var i=0;i<data.length;i++)	{
-			var dataString = data[i].string;
-			var dataProp = data[i].prop;
-			this.versionSearchString = data[i].versionSearch || data[i].identity;
-			if (dataString) {
-				if (dataString.indexOf(data[i].subString) != -1)
-					return data[i].identity;
-			}
-			else if (dataProp)
-				return data[i].identity;
+		function RisingNoteObject(x, y, color)
+		{
+			this.x = x;
+			this.y = y;
+			this.color = color;
+		} 
+		 
+		var RisingNoteArray = new Array();
+		 
+		function objArrayAdd(xToAdd, yToAdd, colorToAdd) {
+			 
+		   var newRisingNote = new RisingNoteObject(xToAdd, yToAdd, colorToAdd);  
+		   
+		   RisingNoteArray.push(newRisingNote);
 		}
-	},
-	searchVersion: function (dataString) {
-		var index = dataString.indexOf(this.versionSearchString);
-		if (index == -1) return;
-		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
-	},
-	dataBrowser: [
-		{
-			string: navigator.userAgent,
-			subString: "Chrome",
-			identity: "Chrome"
-		},
-		{ 	string: navigator.userAgent,
-			subString: "OmniWeb",
-			versionSearch: "OmniWeb/",
-			identity: "OmniWeb"
-		},
-		{
-			string: navigator.vendor,
-			subString: "Apple",
-			identity: "Safari",
-			versionSearch: "Version"
-		},
-		{
-			prop: window.opera,
-			identity: "Opera",
-			versionSearch: "Version"
-		},
-		{
-			string: navigator.vendor,
-			subString: "iCab",
-			identity: "iCab"
-		},
-		{
-			string: navigator.vendor,
-			subString: "KDE",
-			identity: "Konqueror"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Firefox",
-			identity: "Firefox"
-		},
-		{
-			string: navigator.vendor,
-			subString: "Camino",
-			identity: "Camino"
-		},
-		{		// for newer Netscapes (6+)
-			string: navigator.userAgent,
-			subString: "Netscape",
-			identity: "Netscape"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "MSIE",
-			identity: "Explorer",
-			versionSearch: "MSIE"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Gecko",
-			identity: "Mozilla",
-			versionSearch: "rv"
-		},
-		{ 		// for older Netscapes (4-)
-			string: navigator.userAgent,
-			subString: "Mozilla",
-			identity: "Netscape",
-			versionSearch: "Mozilla"
+		 
+		function objArrayGet() {
+
+		   var retrievedRisingNote = new RisingNoteObject();
+		   retrievedRisingNote = RisingNoteArray.shift(); 
+			 
+		   if(retrievedRisingNote) {
+			  return retrievedRisingNote.x + ":" + 
+					 retrievedRisingNote.y + ":" + retrievedRisingNote.color;
+		   }
+		   
+		   else {
+			  return "RisingNoteArray is empty.";
+		   }
 		}
-	],
-	dataOS : [
+
+		//---------------------------------------------------------------------+
+		// Code for Recording Events 
+		//---------------------------------------------------------------------+
+
+		var recording = false;
+		var recordedEvents = [];
+		var sequenceIndex = 0;
+
+		function myTurn()
 		{
-			string: navigator.platform,
-			subString: "Win",
-			identity: "Windows"
-		},
-		{
-			string: navigator.platform,
-			subString: "Mac",
-			identity: "Mac"
-		},
-		{
-			   string: navigator.userAgent,
-			   subString: "iPhone",
-			   identity: "iPhone/iPod"
-	    },
-		{
-			string: navigator.platform,
-			subString: "Linux",
-			identity: "Linux"
+			recording = true;
+			recordedEvents = [];
+			sequenceIndex = 0;
 		}
-	]
 
-};
+		function help()
+		{
+		}
 
-BrowserDetect.init();
+		var BrowserDetect = {
+			init: function () {
+				this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+				this.version = this.searchVersion(navigator.userAgent)
+					|| this.searchVersion(navigator.appVersion)
+					|| "an unknown version";
+				this.OS = this.searchString(this.dataOS) || "an unknown OS";
+			},
+			searchString: function (data) {
+				for (var i=0;i<data.length;i++)	{
+					var dataString = data[i].string;
+					var dataProp = data[i].prop;
+					this.versionSearchString = data[i].versionSearch || data[i].identity;
+					if (dataString) {
+						if (dataString.indexOf(data[i].subString) != -1)
+							return data[i].identity;
+					}
+					else if (dataProp)
+						return data[i].identity;
+				}
+			},
+			searchVersion: function (dataString) {
+				var index = dataString.indexOf(this.versionSearchString);
+				if (index == -1) return;
+				return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+			},
+			dataBrowser: [
+				{
+					string: navigator.userAgent,
+					subString: "Chrome",
+					identity: "Chrome"
+				},
+				{ 	string: navigator.userAgent,
+					subString: "OmniWeb",
+					versionSearch: "OmniWeb/",
+					identity: "OmniWeb"
+				},
+				{
+					string: navigator.vendor,
+					subString: "Apple",
+					identity: "Safari",
+					versionSearch: "Version"
+				},
+				{
+					prop: window.opera,
+					identity: "Opera",
+					versionSearch: "Version"
+				},
+				{
+					string: navigator.vendor,
+					subString: "iCab",
+					identity: "iCab"
+				},
+				{
+					string: navigator.vendor,
+					subString: "KDE",
+					identity: "Konqueror"
+				},
+				{
+					string: navigator.userAgent,
+					subString: "Firefox",
+					identity: "Firefox"
+				},
+				{
+					string: navigator.vendor,
+					subString: "Camino",
+					identity: "Camino"
+				},
+				{		// for newer Netscapes (6+)
+					string: navigator.userAgent,
+					subString: "Netscape",
+					identity: "Netscape"
+				},
+				{
+					string: navigator.userAgent,
+					subString: "MSIE",
+					identity: "Explorer",
+					versionSearch: "MSIE"
+				},
+				{
+					string: navigator.userAgent,
+					subString: "Gecko",
+					identity: "Mozilla",
+					versionSearch: "rv"
+				},
+				{ 		// for older Netscapes (4-)
+					string: navigator.userAgent,
+					subString: "Mozilla",
+					identity: "Netscape",
+					versionSearch: "Mozilla"
+				}
+			],
+			dataOS : [
+				{
+					string: navigator.platform,
+					subString: "Win",
+					identity: "Windows"
+				},
+				{
+					string: navigator.platform,
+					subString: "Mac",
+					identity: "Mac"
+				},
+				{
+					   string: navigator.userAgent,
+					   subString: "iPhone",
+					   identity: "iPhone/iPod"
+				},
+				{
+					string: navigator.platform,
+					subString: "Linux",
+					identity: "Linux"
+				}
+			]
+		};
 
-if (BrowserDetect.browser == "Chrome")
-{
-	var theElement = document.getElementById('caveat');
-	theElement.className += "hidden";
-}
-else {
-	var theElement = document.getElementById('caveat');
-	theElement.className += "shown";
-}
+		BrowserDetect.init();
 
-function BufferLoader(context, urlList, callback) {
-  this.context = context;
-  this.urlList = urlList;
-  this.onload = callback;
-  this.bufferList = new Array();
-  this.loadCount = 0;
-}
+		if (BrowserDetect.browser == "Chrome")
+		{
+			var theElement = document.getElementById('caveat');
+			theElement.className += "hidden";
+		}
+		else {
+			var theElement = document.getElementById('caveat');
+			theElement.className += "shown";
+		}
 
-BufferLoader.prototype.loadBuffer = function(url, index) {
-  // Load buffer asynchronously
-  var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.responseType = "arraybuffer";
+		function BufferLoader(context, urlList, callback) {
 
-  var loader = this;
+		  this.context = context;
+		  this.urlList = urlList;
+		  this.onload = callback;
+		  this.bufferList = new Array();
+		  this.loadCount = 0;
+		  
+		}
 
-  request.onload = function() {
-    // Asynchronously decode the audio file data in request.response
-    loader.context.decodeAudioData(
-      request.response,
-      function(buffer) {
-        if (!buffer) {
-          alert('error decoding file data: ' + url);
-          return;
-        }
-        loader.bufferList[index] = buffer;
-        if (++loader.loadCount == loader.urlList.length)
-          loader.onload(loader.bufferList);
-      }
-    );
-  }
+		BufferLoader.prototype.loadBuffer = function(url, index) {
+		  // Load buffer asynchronously
+		  var request = new XMLHttpRequest();
+		  request.open("GET", url, true);
+		  request.responseType = "arraybuffer";
 
-  request.onerror = function() {
-    alert('BufferLoader: XHR error');
-  }
+		  var loader = this;
 
-  request.send();
-}
+		  request.onload = function() {
+			// Asynchronously decode the audio file data in request.response
+			loader.context.decodeAudioData(
+			  request.response,
+			  function(buffer) {
+				if (!buffer) {
+				  alert('error decoding file data: ' + url);
+				  return;
+				}
+				loader.bufferList[index] = buffer;
+				if (++loader.loadCount == loader.urlList.length)
+				  loader.onload(loader.bufferList);
+			  }
+			);
+		  }
 
-BufferLoader.prototype.load = function() {
+		  request.onerror = function() {
+			alert('BufferLoader: XHR error');
+		  }
 
-  for (var i = 0; i < this.urlList.length; ++i)
-  
-	this.loadBuffer(this.urlList[i], i);
-}
+		  request.send();
+		}
 
-window.onload = init;
+		BufferLoader.prototype.load = function() {
 
-var context;
-var bufferLoader;
+		  for (var i = 0; i < this.urlList.length; ++i)
+		  
+			this.loadBuffer(this.urlList[i], i);
+		}
 
-var runtime;
+		window.onload = init;
 
-function init() {
-  
-  context = new webkitAudioContext();
-  
-  bufferLoader = new BufferLoader(
-    context,
-    [
-	'wav/chimes.wav',
-      'mp3/PIANO_LOUD_G2s.mp3',
-      'mp3/PIANO_LOUD_AB2s.mp3',
-	'mp3/PIANO_LOUD_A2s.mp3',
-	'mp3/PIANO_LOUD_BB2s.mp3',
-	'wav/PIANO_LOUD_B2s.wav',
-      'wav/PIANO_LOUD_C3s.wav',
-      'wav/PIANO_LOUD_DB3s.wav',
-	'wav/PIANO_LOUD_D3s.wav',
-	'wav/PIANO_LOUD_EB3s.wav',
-	'wav/PIANO_LOUD_E3s.wav',
-	'wav/PIANO_LOUD_F3s.wav',
-      'wav/PIANO_LOUD_GB3s.wav',
-	'wav/PIANO_LOUD_G3s.wav',
-	'wav/PIANO_LOUD_AB3s.wav',
-	'wav/PIANO_LOUD_A3s.wav',
-	'wav/PIANO_LOUD_BB3s.wav',
-	'wav/PIANO_LOUD_B3s.wav',
-	'wav/PIANO_LOUD_C4s.wav',
-      'wav/PIANO_LOUD_DB4s.wav',
-	'wav/PIANO_LOUD_D4s.wav',
-	'wav/PIANO_LOUD_EB4s.wav',
-	'wav/PIANO_LOUD_E4s.wav',
-	'wav/PIANO_LOUD_F4s.wav',
-      'wav/PIANO_LOUD_GB4s.wav',
-	'wav/PIANO_LOUD_G4s.wav',
-	'wav/PIANO_LOUD_AB4s.wav',
-	'wav/PIANO_LOUD_A4s.wav',
-	'wav/PIANO_LOUD_BB4s.wav',
-	'wav/PIANO_LOUD_B4s.wav',
-	'wav/PIANO_LOUD_C5s.wav',
-      'wav/PIANO_LOUD_DB5s.wav',
-	'wav/PIANO_LOUD_D5s.wav',
-	'wav/PIANO_LOUD_EB5s.wav',
-	'wav/PIANO_LOUD_E5s.wav',
-	'wav/PIANO_LOUD_F5s.wav',
-      'wav/PIANO_LOUD_GB5s.wav',
-	'wav/PIANO_LOUD_G5s.wav',
-	'wav/PIANO_LOUD_AB5s.wav',
-	'wav/PIANO_LOUD_A5s.wav',
-	'wav/PIANO_LOUD_BB5s.wav',
-	'wav/PIANO_LOUD_B5s.wav',
-	'wav/PIANO_LOUD_C6s.wav',
-      'wav/PIANO_LOUD_DB6s.wav',
-	'wav/PIANO_LOUD_D6s.wav',
-	'wav/PIANO_LOUD_EB6s.wav',
-	'wav/PIANO_LOUD_E6s.wav',
-	'wav/PIANO_LOUD_F6s.wav',
-      'wav/PIANO_LOUD_GB6s.wav',
-	'wav/PIANO_LOUD_G6s.wav',
-	'wav/PIANO_LOUD_AB6s.wav',
-	'wav/PIANO_LOUD_A6s.wav',
-	'wav/PIANO_LOUD_BB6s.wav',
-	'wav/PIANO_LOUD_B6s.wav',
-	'wav/PIANO_LOUD_C7s.wav',
-      'wav/PIANO_LOUD_DB7s.wav',
-	'wav/PIANO_LOUD_D7s.wav'
-    ],
-    finishedLoading
-    );
+		var context;
+		var bufferLoader;
+
+		var runtime;
+
+		function init() {
+		  
+		  context = new webkitAudioContext();
+		  
+		  bufferLoader = new BufferLoader(
+			context,
+			[
+			'wav/chimes.wav',
+			  'mp3/PIANO_LOUD_G2s.mp3',
+			  'mp3/PIANO_LOUD_AB2s.mp3',
+			'mp3/PIANO_LOUD_A2s.mp3',
+			'mp3/PIANO_LOUD_BB2s.mp3',
+			'wav/PIANO_LOUD_B2s.wav',
+			  'wav/PIANO_LOUD_C3s.wav',
+			  'wav/PIANO_LOUD_DB3s.wav',
+			'wav/PIANO_LOUD_D3s.wav',
+			'wav/PIANO_LOUD_EB3s.wav',
+			'wav/PIANO_LOUD_E3s.wav',
+			'wav/PIANO_LOUD_F3s.wav',
+			  'wav/PIANO_LOUD_GB3s.wav',
+			'wav/PIANO_LOUD_G3s.wav',
+			'wav/PIANO_LOUD_AB3s.wav',
+			'wav/PIANO_LOUD_A3s.wav',
+			'wav/PIANO_LOUD_BB3s.wav',
+			'wav/PIANO_LOUD_B3s.wav',
+			'wav/PIANO_LOUD_C4s.wav',
+			  'wav/PIANO_LOUD_DB4s.wav',
+			'wav/PIANO_LOUD_D4s.wav',
+			'wav/PIANO_LOUD_EB4s.wav',
+			'wav/PIANO_LOUD_E4s.wav',
+			'wav/PIANO_LOUD_F4s.wav',
+			  'wav/PIANO_LOUD_GB4s.wav',
+			'wav/PIANO_LOUD_G4s.wav',
+			'wav/PIANO_LOUD_AB4s.wav',
+			'wav/PIANO_LOUD_A4s.wav',
+			'wav/PIANO_LOUD_BB4s.wav',
+			'wav/PIANO_LOUD_B4s.wav',
+			'wav/PIANO_LOUD_C5s.wav',
+			  'wav/PIANO_LOUD_DB5s.wav',
+			'wav/PIANO_LOUD_D5s.wav',
+			'wav/PIANO_LOUD_EB5s.wav',
+			'wav/PIANO_LOUD_E5s.wav',
+			'wav/PIANO_LOUD_F5s.wav',
+			  'wav/PIANO_LOUD_GB5s.wav',
+			'wav/PIANO_LOUD_G5s.wav',
+			'wav/PIANO_LOUD_AB5s.wav',
+			'wav/PIANO_LOUD_A5s.wav',
+			'wav/PIANO_LOUD_BB5s.wav',
+			'wav/PIANO_LOUD_B5s.wav',
+			'wav/PIANO_LOUD_C6s.wav',
+			  'wav/PIANO_LOUD_DB6s.wav',
+			'wav/PIANO_LOUD_D6s.wav',
+			'wav/PIANO_LOUD_EB6s.wav',
+			'wav/PIANO_LOUD_E6s.wav',
+			'wav/PIANO_LOUD_F6s.wav',
+			  'wav/PIANO_LOUD_GB6s.wav',
+			'wav/PIANO_LOUD_G6s.wav',
+			'wav/PIANO_LOUD_AB6s.wav',
+			'wav/PIANO_LOUD_A6s.wav',
+			'wav/PIANO_LOUD_BB6s.wav',
+			'wav/PIANO_LOUD_B6s.wav',
+			'wav/PIANO_LOUD_C7s.wav',
+			  'wav/PIANO_LOUD_DB7s.wav',
+			'wav/PIANO_LOUD_D7s.wav'
+			],
+			finishedLoading
+			);
+			
+			bufferLoader.load();
+
+		  
+			animate();
+		}
+
+		function finishedLoading(bufferList) {
+
+		  // Create two sources and play them both together.
+		  var source1 = context.createBufferSource();
+
+		  source1.buffer = bufferList[0];
+		  source1.connect(context.destination);
+		  source1.noteOn(0);
+		}
+
+	</script>
+
+	<script src="js/howler.js"></script>
+
+	<script src="stream.js"></script>
 	
-	bufferLoader.load();
-
-  
-	animate();
-}
-
-function finishedLoading(bufferList) {
-
-  // Create two sources and play them both together.
-  var source1 = context.createBufferSource();
-
-  source1.buffer = bufferList[0];
-  source1.connect(context.destination);
-  source1.noteOn(0);
-}
-
-</script>
-
-<script src="js/howler.js"></script>
-
-<script src="stream.js"></script>
-		<script src="js/midifile.js"></script>
-		<script src="js/synth.js"></script>
-		<script src="js/replayer.js"></script>
-		<script src="js/audio.js"></script>
-		<script type="text/javascript">
+	<script src="js/midifile.js"></script>
+	<script src="js/synth.js"></script>
+	<script src="js/replayer.js"></script>
+	<script src="js/audio.js"></script>
+	<script type="text/javascript">
 		  
 			window.requestAnimFrame = (function(callback) {
 				
@@ -520,120 +522,116 @@ function finishedLoading(bufferList) {
 		<p>		
 			<select id=midiIn onchange='changeMidi();'>
 				<option value="">Not connected</option>
-			</select>
-			
-			<div id=msg></div>
+			</select>	
 		</p>
 		
 		<script><!--
+		
 			var Jazz;
 			var active_element;
 			var current_in;
 			var msg;
 			var sel;
 
-			
-var colorWheel = [
+			var colorWheel = [
 
-		'rgb(255,0,110)',
-		'rgb(255,0,94)',
-		'rgb(255,0,78)',
-		'rgb(255,0,62)',
-		'rgb(255,0,46)',
-		'rgb(255,0,30)',
-		'rgb(255,0,14)',
-		'rgb(255,1,0)',
-		'rgb(255,17,0)',
-		'rgb(255,33,0)',
-		'rgb(255,49,0)',
-		'rgb(255,65,0)',
-		'rgb(255,81,0)',
-		'rgb(255,97,0)',
-		'rgb(255,113,0)',
-		'rgb(255,129,0)',
-		'rgb(255,145,0)',
-		'rgb(255,161,0)',
-		'rgb(255,177,0)',
-		'rgb(255,193,0)',
-		'rgb(255,209,0)',
-		'rgb(255,225,0)',
-		'rgb(255,241,0)',
-		'rgb(253,255,0)',
-		'rgb(237,255,0)',
-		'rgb(221,255,0)',
-		'rgb(205,255,0)',
-		'rgb(189,255,0)',
-		'rgb(173,255,0)',
-		'rgb(157,255,0)',
-		'rgb(141,255,0)',
-		'rgb(125,255,0)',
-		'rgb(109,255,0)',
-		'rgb(93,255,0)',
-		'rgb(77,255,0)',
-		'rgb(61,255,0)',
-		'rgb(45,255,0)',
-		'rgb(29,255,0)',
-		'rgb(13,255,0)',
-		'rgb(0,255,3)',
-		'rgb(0,255,19)',
-		'rgb(0,255,35)',
-		'rgb(0,255,51)',
-		'rgb(0,255,67)',
-		'rgb(0,255,83)',
-		'rgb(0,255,99)',
-		'rgb(0,255,115)',
-		'rgb(0,255,131)',
-		'rgb(0,255,147)',
-		'rgb(0,255,163)',
-		'rgb(0,255,179)',
-		'rgb(0,255,195)',
-		'rgb(0,255,211)',
-		'rgb(0,255,227)',
-		'rgb(0,255,243)',
-		'rgb(0,251,255)',
-		'rgb(0,235,255)',
-		'rgb(0,219,255)',
-		'rgb(0,203,255)',
-		'rgb(0,187,255)',
-		'rgb(0,171,255)',
-		'rgb(0,155,255)',
-		'rgb(0,139,255)',
-		'rgb(0,123,255)',
-		'rgb(0,107,255)',
-		'rgb(0,91,255)',
-		'rgb(0,75,255)',
-		'rgb(0,59,255)',
-		'rgb(0,43,255)',
-		'rgb(0,27,255)',
-		'rgb(0,11,255)',
-		'rgb(4,0,255)',
-		'rgb(20,0,255)',
-		'rgb(36,0,255)',
-		'rgb(52,0,255)',
-		'rgb(68,0,255)',
-		'rgb(84,0,255)',
-		'rgb(100,0,255)',
-		'rgb(116,0,255)',
-		'rgb(132,0,255)',
-		'rgb(148,0,255)',
-		'rgb(164,0,255)',
-		'rgb(180,0,255)',
-		'rgb(196,0,255)',
-		'rgb(212,0,255)',
-		'rgb(228,0,255)'
-	];
+					'rgb(255,0,110)',
+					'rgb(255,0,94)',
+					'rgb(255,0,78)',
+					'rgb(255,0,62)',
+					'rgb(255,0,46)',
+					'rgb(255,0,30)',
+					'rgb(255,0,14)',
+					'rgb(255,1,0)',
+					'rgb(255,17,0)',
+					'rgb(255,33,0)',
+					'rgb(255,49,0)',
+					'rgb(255,65,0)',
+					'rgb(255,81,0)',
+					'rgb(255,97,0)',
+					'rgb(255,113,0)',
+					'rgb(255,129,0)',
+					'rgb(255,145,0)',
+					'rgb(255,161,0)',
+					'rgb(255,177,0)',
+					'rgb(255,193,0)',
+					'rgb(255,209,0)',
+					'rgb(255,225,0)',
+					'rgb(255,241,0)',
+					'rgb(253,255,0)',
+					'rgb(237,255,0)',
+					'rgb(221,255,0)',
+					'rgb(205,255,0)',
+					'rgb(189,255,0)',
+					'rgb(173,255,0)',
+					'rgb(157,255,0)',
+					'rgb(141,255,0)',
+					'rgb(125,255,0)',
+					'rgb(109,255,0)',
+					'rgb(93,255,0)',
+					'rgb(77,255,0)',
+					'rgb(61,255,0)',
+					'rgb(45,255,0)',
+					'rgb(29,255,0)',
+					'rgb(13,255,0)',
+					'rgb(0,255,3)',
+					'rgb(0,255,19)',
+					'rgb(0,255,35)',
+					'rgb(0,255,51)',
+					'rgb(0,255,67)',
+					'rgb(0,255,83)',
+					'rgb(0,255,99)',
+					'rgb(0,255,115)',
+					'rgb(0,255,131)',
+					'rgb(0,255,147)',
+					'rgb(0,255,163)',
+					'rgb(0,255,179)',
+					'rgb(0,255,195)',
+					'rgb(0,255,211)',
+					'rgb(0,255,227)',
+					'rgb(0,255,243)',
+					'rgb(0,251,255)',
+					'rgb(0,235,255)',
+					'rgb(0,219,255)',
+					'rgb(0,203,255)',
+					'rgb(0,187,255)',
+					'rgb(0,171,255)',
+					'rgb(0,155,255)',
+					'rgb(0,139,255)',
+					'rgb(0,123,255)',
+					'rgb(0,107,255)',
+					'rgb(0,91,255)',
+					'rgb(0,75,255)',
+					'rgb(0,59,255)',
+					'rgb(0,43,255)',
+					'rgb(0,27,255)',
+					'rgb(0,11,255)',
+					'rgb(4,0,255)',
+					'rgb(20,0,255)',
+					'rgb(36,0,255)',
+					'rgb(52,0,255)',
+					'rgb(68,0,255)',
+					'rgb(84,0,255)',
+					'rgb(100,0,255)',
+					'rgb(116,0,255)',
+					'rgb(132,0,255)',
+					'rgb(148,0,255)',
+					'rgb(164,0,255)',
+					'rgb(180,0,255)',
+					'rgb(196,0,255)',
+					'rgb(212,0,255)',
+					'rgb(228,0,255)'
+				];
 
-	//// Callback function
-	function midiProc(t,a,b,c){
-		 
-		var noteX = 50 + (parseInt(b,16) - 23) * 25;
-		var noteY = 350;
-		var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
+				//// Callback function
+				function midiProc(t,a,b,c){
+					 
+					var noteX = 50 + (parseInt(b,16) - 23) * 25;
+					var noteY = 350;
+					var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
 
-		objArrayAdd(noteX, noteY, noteColor);
-		
-		
-	}
+					objArrayAdd(noteX, noteY, noteColor);	
+				}
 			
 			//// Listbox
 			function changeMidi(){
@@ -653,10 +651,12 @@ var colorWheel = [
 			//// Connect/disconnect
 			function connectMidiIn(){
 			 try{
+			 
 			  var str=Jazz.MidiInOpen(current_in,midiProc);
 			  for(var i=0;i<sel.length;i++){
 			   if(sel[i].value==str) sel[i].selected=1;
 			  }
+			  
 			 }
 			 catch(err){}
 			}
@@ -677,8 +677,9 @@ var colorWheel = [
 
 			//// Initialize
 			Jazz=document.getElementById("Jazz1"); if(!Jazz || !Jazz.isJazz) Jazz = document.getElementById("Jazz2");
-			msg=document.getElementById("msg");
+			
 			sel=document.getElementById("midiIn");
+			
 			try{
 			 current_in=Jazz.MidiInOpen(0, midiProc);
 			 var list=Jazz.MidiInList();
@@ -690,6 +691,7 @@ var colorWheel = [
 
 			if(navigator.appName=='Microsoft Internet Explorer'){ document.onfocusin=onFocusIE; document.onfocusout=onBlurIE;}
 			else{ window.onfocus=connectMidiIn; window.onblur=disconnectMidiIn;}
+			
 	--></script>
 	</body>	
 
