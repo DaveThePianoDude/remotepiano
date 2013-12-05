@@ -625,12 +625,27 @@
 
 				//// Callback function
 				function midiProc(t,a,b,c){
-					 			 
-					alert(b);
+					 			
+					var num = parseInt(b,16);
+
+					//pressedKeys.push(num);
+
+					//keys.item(num).addClass('pressed');
+
+					//onmidievent(new MidiEvent(ch || channel, 9, num, vel || velocity));
+
+					 // play a note
+					//var source1 = context.createBufferSource();
+
+					//source1.buffer = this.bufferLoader.bufferList[num-23];
+
+				//source1.connect(context.destination);
+
+					//source1.noteOn(0);
 							 
-					var noteX = 50 + (parseInt(b,16) - 23) * 25;
+					var noteX = 50 + (num - 23) * 25;
 					var noteY = 350;
-					var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
+					var noteColor = colorWheel[num - 23)*2];
 
 					objArrayAdd(noteX, noteY, noteColor);	
 				}
