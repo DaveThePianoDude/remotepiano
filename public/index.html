@@ -512,11 +512,6 @@
 		<div id='d1' style="position:absolute; top:200px; left:0px; z-index:1">  
 			<canvas id="notescroll" width="1200" height="580" ></canvas>
 		</div>
-		<div id="d2" style="position:absolute: top: 0px; left:400px;">			
-			<select id=midiIn onchange='changeMidi();'>
-				<option value="">Not connected</option>
-			</select>	
-		</div>
 		
 		<script><!--
 		
@@ -748,10 +743,13 @@
 			
 			try{
 			 current_in=Jazz.MidiInOpen(0, midiProc);
+			 
 			 var list=Jazz.MidiInList();
-			 for(var i in list){
-			  sel[sel.options.length]=new Option(list[i],list[i],list[i]==current_in,list[i]==current_in);
-			 }
+			 
+			 alert(list);
+			 //for(var i in list){
+			//  sel[sel.options.length]=new Option(list[i],list[i],list[i]==current_in,list[i]==current_in);
+			// }
 			}
 			catch(err){}
 
