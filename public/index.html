@@ -625,7 +625,17 @@
 
 				//// Callback function
 				function midiProc(t,a,b,c){
-					 
+					 			 
+					 // play a note
+					 var source1 = context.createBufferSource();
+					
+					 source1.buffer = this.bufferLoader.bufferList[parseInt(b,16)-23];
+					
+					 source1.connect(context.destination);
+
+					 source1.noteOn(0);
+							 
+			
 					var noteX = 50 + (parseInt(b,16) - 23) * 25;
 					var noteY = 350;
 					var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
