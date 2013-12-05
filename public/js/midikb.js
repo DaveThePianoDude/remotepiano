@@ -373,7 +373,7 @@ function defineElements(){
 	helpButton = create('button', {
 		id: 'helpButton',
 		title: 'Help!',
-		html: 'Help'
+		html: ''
 	});
 
 	var sldOptions = {
@@ -386,10 +386,12 @@ function defineElements(){
 	modWheel = Jin.slider(sldOptions);
 	pitchWheel.dom.id = 'pitchWheel';
 	modWheel.dom.id = 'modWheel';
+
+	Jin.appendChildren(keyboard, container);	Jin.appendChildren(document.body, helpButton);
 	Jin.appendChildren(document.body, keyboard, settingButton);
 
-	//pitchWheel.refresh();
-	//modWheel.refresh();
+	pitchWheel.refresh();
+	modWheel.refresh();
 }
 
 function doBindings(){
