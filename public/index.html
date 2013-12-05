@@ -685,12 +685,10 @@
 				
 			// Callback function
 			function midiProc(t,a,b,c){
-						
-alert(b);						
-				var ind = parseInt(b,16) - 23;
-				
+			
+				var ind = b - 23;
 				var hush = filePaths[ind];
-							
+
 				var sound = new Howl({
 					urls: [hush]
 				}).play();
