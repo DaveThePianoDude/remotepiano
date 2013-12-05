@@ -17,7 +17,7 @@
 
 		<tr>
 			<td><label id = "caveat">You need the Google Chrome browser to experience this site.</label></td>
-			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">?</button>
+			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">Help</button>
 			
 			</td>
 		</tr>
@@ -385,7 +385,6 @@
 			
 			bufferLoader.load();
 
-		  
 			animate();
 		}
 
@@ -622,20 +621,81 @@
 					'rgb(212,0,255)',
 					'rgb(228,0,255)'
 				];
+			
+			var filePaths = [
+			
+					'wav/chimes.wav',
+					'mp3/PIANO_LOUD_G2s.mp3',
+					'mp3/PIANO_LOUD_AB2s.mp3',
+					'mp3/PIANO_LOUD_A2s.mp3',
+					'mp3/PIANO_LOUD_BB2s.mp3',
+					'wav/PIANO_LOUD_B2s.wav',
+					'wav/PIANO_LOUD_C3s.wav',
+					'wav/PIANO_LOUD_DB3s.wav',
+					'wav/PIANO_LOUD_D3s.wav',
+					'wav/PIANO_LOUD_EB3s.wav',
+					'wav/PIANO_LOUD_E3s.wav',
+					'wav/PIANO_LOUD_F3s.wav',
+					'wav/PIANO_LOUD_GB3s.wav',
+					'wav/PIANO_LOUD_G3s.wav',
+					'wav/PIANO_LOUD_AB3s.wav',
+					'wav/PIANO_LOUD_A3s.wav',
+					'wav/PIANO_LOUD_BB3s.wav',
+					'wav/PIANO_LOUD_B3s.wav',
+					'wav/PIANO_LOUD_C4s.wav',
+					'wav/PIANO_LOUD_DB4s.wav',
+					'wav/PIANO_LOUD_D4s.wav',
+					'wav/PIANO_LOUD_EB4s.wav',
+					'wav/PIANO_LOUD_E4s.wav',
+					'wav/PIANO_LOUD_F4s.wav',
+					'wav/PIANO_LOUD_GB4s.wav',
+					'wav/PIANO_LOUD_G4s.wav',
+					'wav/PIANO_LOUD_AB4s.wav',
+					'wav/PIANO_LOUD_A4s.wav',
+					'wav/PIANO_LOUD_BB4s.wav',
+					'wav/PIANO_LOUD_B4s.wav',
+					'wav/PIANO_LOUD_C5s.wav',
+					'wav/PIANO_LOUD_DB5s.wav',
+					'wav/PIANO_LOUD_D5s.wav',
+					'wav/PIANO_LOUD_EB5s.wav',
+					'wav/PIANO_LOUD_E5s.wav',
+					'wav/PIANO_LOUD_F5s.wav',
+					'wav/PIANO_LOUD_GB5s.wav',
+					'wav/PIANO_LOUD_G5s.wav',
+					'wav/PIANO_LOUD_AB5s.wav',
+					'wav/PIANO_LOUD_A5s.wav',
+					'wav/PIANO_LOUD_BB5s.wav',
+					'wav/PIANO_LOUD_B5s.wav',
+					'wav/PIANO_LOUD_C6s.wav',
+					'wav/PIANO_LOUD_DB6s.wav',
+					'wav/PIANO_LOUD_D6s.wav',
+					'wav/PIANO_LOUD_EB6s.wav',
+					'wav/PIANO_LOUD_E6s.wav',
+					'wav/PIANO_LOUD_F6s.wav',
+					'wav/PIANO_LOUD_GB6s.wav',
+					'wav/PIANO_LOUD_G6s.wav',
+					'wav/PIANO_LOUD_AB6s.wav',
+					'wav/PIANO_LOUD_A6s.wav',
+					'wav/PIANO_LOUD_BB6s.wav',
+					'wav/PIANO_LOUD_B6s.wav',
+					'wav/PIANO_LOUD_C7s.wav',
+					'wav/PIANO_LOUD_DB7s.wav',
+					'wav/PIANO_LOUD_D7s.wav'
+			];
+				
+			//// Callback function
+			function midiProc(t,a,b,c){
+						
+				var sound = new Howl({
+					urls: [filePaths[(parseInt(b,16)]]
+				}).play();
+										 
+				var noteX = 50 + (parseInt(b,16) - 23) * 22;
+				var noteY = 350;
+				var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
 
-				//// Callback function
-				function midiProc(t,a,b,c){
-					 			
-					var sound = new Howl({
-						urls: ['mp3/PIANO_LOUD_A2s.mp3']
-					}).play();
-											 
-					var noteX = 50 + (parseInt(b,16) - 23) * 25;
-					var noteY = 350;
-					var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
-
-					objArrayAdd(noteX, noteY, noteColor);	
-				}
+				objArrayAdd(noteX, noteY, noteColor);	
+			}
 			
 			//// Listbox
 			function changeMidi(){
