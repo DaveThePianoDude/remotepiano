@@ -16,9 +16,8 @@
 	<table style="position:absolute;Right:1%;top: 1%">
 
 		<tr>
-			<td><label id = "caveat">You need the Google Chrome browser to experience this site.</label></td>
-			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">?</button>
-			
+			<td><label id = "caveat">You may need Google Chrome or Opera to experience this site.</label></td>
+			<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">Help</button>	
 			</td>
 		</tr>
 		
@@ -133,6 +132,7 @@
 		}
 
 		var BrowserDetect = {
+		
 			init: function () {
 				this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 				this.version = this.searchVersion(navigator.userAgent)
@@ -509,11 +509,6 @@
 			</object>
 		</object>
 
-		<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
-			<span id="demo_highlight"></span>
-			<div id="demo_min_thumb"><img src="assets/l-thumb-round.gif"></div>
-			<div id="demo_max_thumb"><img src="assets/r-thumb-round.gif"></div>
-		</div>
 		<div id='d1' style="position:absolute; top:200px; left:0px; z-index:1">  
 			<canvas id="notescroll" width="1200" height="580" ></canvas>
 		</div>
