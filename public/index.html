@@ -683,19 +683,20 @@
 					'wav/PIANO_LOUD_D7s.wav'
 			];
 				
-
-			//// Callback function
+			// Callback function
 			function midiProc(t,a,b,c){
 							
-				var hush = 'mp3/PIANO_LOUD_A2s.mp3';
+				var ind = parseInt(b,16) - 23;
+				
+				var hush = filePaths[ind];
 							
 				var sound = new Howl({
 					urls: [hush]
 				}).play();
 										 
-				var noteX = 50 + (parseInt(b,16) - 23) * 25;
+				var noteX = 50 + ind * 25;
 				var noteY = 350;
-				var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
+				var noteColor = colorWheel[ind*2];
 
 				objArrayAdd(noteX, noteY, noteColor);	
 			}
