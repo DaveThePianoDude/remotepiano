@@ -12,31 +12,64 @@
 		
 		 
 <table style="position:absolute;Right:1%;top: 1%">
-<tr>
-<td><label id = "caveat">You need the Google Chrome browser to experience this site.</label></td>
-<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">?</button>
-</td>
-</tr>
+
+	<tr>
+		<td><label id = "caveat">You need the Google Chrome browser to experience this site.</label></td>
+		<td><button id="button1" onClick="window.open('help.html','instructions','width=570,height=325,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">?</button>
+		
+		</td>
+	</tr>
+	
 </table>
+
+<!-- Style section for Jass-Soft library: -->
 
 <style type="text/css">
 
-body {
-	margin:0;
-	padding:0;
-}
+	.hidden {
+	 visibility:hidden;
+	 width:0px;
+	 height:0px;
+	 margin:0px;
+	 padding:0px;
+	 border-style:none;
+	 border-width:0px;
+	 max-width:0px;
+	 max-height:0px;
+	}
+	#msg {
+	 width:20em;
+	 height:24em;
+	 margin:.5em 0 .5em 0;
+	 padding:.5em;
+	 background-color:#eee;
+	 border:solid 1px #888;
+	 white-space:pre;
+	 font-family:Courier New, monospace;
+	 font-size:.75em;
+	 overflow:auto;
+	}
+	
+</style>
 
-label.shown {
-	font-size:16;
-	font-weight:bold;
-	color:red
-}
+<style type="text/css">
 
-label.hidden {
-	font-size:16;
-	font-weight:bold;
-	color:black
-}
+	body {
+		margin:0;
+		padding:0;
+	}
+
+	label.shown {
+		font-size:16;
+		font-weight:bold;
+		color:red
+	}
+
+	label.hidden {
+		font-size:16;
+		font-weight:bold;
+		color:black
+	}
 
 </style>
 
@@ -532,7 +565,14 @@ function finishedLoading(bufferList) {
 
 	</head>
 	<body>
+		<object id="Jazz1" classid="CLSID:1ACE1618-1C7D-4561-AEE1-34842AA85E90" class="hidden">
+			<object id="Jazz2" type="audio/x-jazz" class="hidden">
+
+				<p style="visibility:visible;">This page requires <a href=http://jazz-soft.net>Jazz-Plugin</a> ...</p>
 		
+			</object>
+		</object>
+
 		<div id="demo_bg" style="position:absolute;Left:5%;bottom:-10;top: 92%" >
 			<span id="demo_highlight"></span>
 			<div id="demo_min_thumb"><img src="assets/l-thumb-round.gif"></div>
@@ -542,6 +582,13 @@ function finishedLoading(bufferList) {
 			<canvas id="notescroll" width="1200" height="500" ></canvas>
 		</div>
 		
+		<p>		
+			<select id=midiIn onchange='changeMidi();'>
+				<option value="">Not connected</option>
+			</select>
+			
+			<div id=msg></div>
+		</p>
 	</body>	
 
 </html>
