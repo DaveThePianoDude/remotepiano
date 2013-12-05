@@ -387,7 +387,7 @@ function defineElements(){
 	pitchWheel.dom.id = 'pitchWheel';
 	modWheel.dom.id = 'modWheel';
 
-	Jin.appendChildren(keyboard, container);	Jin.appendChildren(document.body, helpButton);
+	Jin.appendChildren(keyboard, container);	//Jin.appendChildren(document.body, helpButton);
 	Jin.appendChildren(document.body, keyboard, settingButton);
 
 	pitchWheel.refresh();
