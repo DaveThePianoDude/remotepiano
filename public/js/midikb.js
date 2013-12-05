@@ -282,17 +282,18 @@ var colorWheel = [
 
 	//// Callback function
 	function midiProc(t,a,b,c){
-	 msg.innerHTML=msg.innerHTML+midiString(a,b,c)+"<br>";
-	 msg.scrollTop=msg.scrollHeight;
-	 
-	alert(b);
-	 
-	var noteX = 50 + (parseInt(b,16) - 23) * 25;
-    var noteY = 350;
-    var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
+	
+		msg.innerHTML=msg.innerHTML+midiString(a,b,c)+"<br>";
+		msg.scrollTop=msg.scrollHeight;
+		 
+		alert(b);
+		 
+		var noteX = 50 + (parseInt(b,16) - 23) * 25;
+		var noteY = 350;
+		var noteColor = colorWheel[(parseInt(b,16) - 23)*2];
 
-	objArrayAdd(noteX, noteY, noteColor);
-	 
+		objArrayAdd(noteX, noteY, noteColor);
+		
 	}
 	
 	function midiString(a,b,c){
