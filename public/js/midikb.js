@@ -244,13 +244,9 @@ function press(num, ch, vel){
 
 	 source1.noteOn(0);
 	
-	//var sound = new Howl({
-	//	urls: ['mp3/PIANO_LOUD_A2s.mp3']
-	//}).play();
-	
 	var noteX = 50 + (num -23) * 30;
-    	var noteY = 350;
-    	var noteColor = colorWheel[(num - 23)*2];
+    var noteY = 350;
+    var noteColor = colorWheel[(num - 23)*2];
 
 	objArrayAdd(noteX, noteY, noteColor);
 }
