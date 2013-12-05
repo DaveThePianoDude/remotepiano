@@ -686,7 +686,7 @@
 			// Callback function
 			function midiProc(t,a,b,c){
 			
-				if (a > 128) // Variable 'a' can have two values: 144 (note ON) and 128 (not OFF).  We want it to sound for note ON only.
+				if (a == '144') // Variable 'a' can have two values: 144 (note ON) and 128 (not OFF).  We want it to sound for note ON only.
 				{
 					var ind = b - 23;
 					var hush = filePaths[ind];
