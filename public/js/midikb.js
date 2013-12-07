@@ -243,9 +243,9 @@ function press(num, ch, vel){
 
 	 source1.noteOn(0);
 	
-	var noteX = 50 + (num -6) * 30;
+	var noteX = 50 + (num - 30) * 30;
     var noteY = 550;
-    var noteColor = colorWheel[(num - 6)*2];
+    var noteColor = colorWheel[(num - 30)*2];
 
 	objArrayAdd(noteX, noteY, noteColor);
 }
