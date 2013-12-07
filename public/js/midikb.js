@@ -237,15 +237,15 @@ function press(num, ch, vel){
 	 // play a note
 	 var source1 = context.createBufferSource();
 	
-	 source1.buffer = this.bufferLoader.bufferList[num-23];
+	 source1.buffer = this.bufferLoader.bufferList[num-6];
 	
 	 source1.connect(context.destination);
 
 	 source1.noteOn(0);
 	
-	var noteX = 50 + (num -23) * 30;
+	var noteX = 50 + (num -6) * 30;
     var noteY = 550;
-    var noteColor = colorWheel[(num - 23)*2];
+    var noteColor = colorWheel[(num - 6)*2];
 
 	objArrayAdd(noteX, noteY, noteColor);
 }
