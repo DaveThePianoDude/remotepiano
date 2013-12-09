@@ -21,6 +21,32 @@ A journal of activities on 10/1/2013, wherby we successfully pushed a PHP app to
 
 4. Basic functions in place as of 10.26.13.  There is still a blue 'trombone slider' on the UI, however. :|
 
-5. Used the <ul> <li> combo to get the images to appear on top of the same spot.
-
+5. Used the <ul> <li> combo to get the images to appear on top of the same spot. 	
 6. THis is still a toy, but it's cool.  
+
+
+
+
+---------------------------------------------
+
+WEB ANALYTICS
+
+December 7, 2013
+
+Began installation of Piwik on Piano Bridge
+
+First unzipped Piwik files to analytics folder under pianobridge
+
+Then added a php.ini file that points to a missing (in Heroku) .so file that containes a couple of command line utilities that Piwik needs
+
+Configured ClearDB for the web app and it shows up in the Heroku console just fine.
+
+Did some command line heroku config statements:
+
+ heroku config:add DATABASE_URL=...
+
+CLEARDB_DATABASE_URL:  mysql://b363d9a7596457:87f3e8ae@us-cdbr-east-04.cleardb.com/heroku_27bcc4d4e9cb5cf?reconnect=true
+
+Googled around to get the correct portion of above string to input as the server name (i.e., us-cdbr-east-04.cleardb.com)
+
+Stopped after an error pertaining to permissions (see screen shot in ClearDB_Permissions_Error.png)
