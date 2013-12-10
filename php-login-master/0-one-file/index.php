@@ -346,7 +346,7 @@ class Login
 
 
 // PHP 5
-	class Template {
+	public class Template {
 		private $args;
 		private $file;
 
@@ -377,9 +377,9 @@ class Login
 
         echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
 		
-		$main = new Template('choir.php', array('title' => 'Vienna Presbyterian Sanctuary Church Choir'));
+		//$main = new Template('choir.php', array('title' => 'Vienna Presbyterian Sanctuary Church Choir'));
 		
-		$main->render();
+		//$main->render();
 		
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
     }
