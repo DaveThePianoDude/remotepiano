@@ -229,6 +229,12 @@ JANICE FEATHER
 <tr>
 
 <td align="center" valign="center" >
+<img src="img/alto/FREDERICKS_TARA.JPG" height="240" width="200" alt="" />
+<br />
+TARA FREDERICKS
+</td>
+
+<td align="center" valign="center" >
 <img src="img/alto/HOPKINS_SHARON.JPG" height="240" width="200" alt="" />
 <br />
 SHARON HOPKINS
@@ -252,15 +258,15 @@ ELAINE LOCKE
 JENNIFER LOWERY
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/MACHOVINA_ELIZABETH.JPG" height="240" width="200" alt="" />
 <br />
 LIZ MACHOVINA
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/MCCARLEY_CHRISTINE.JPG" height="240" width="200" alt="" />
@@ -286,15 +292,15 @@ MARY PELLA
 JANE PETERSON
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/PRICE_BETTY.JPG" height="240" width="200" alt="" />
 <br />
 BETTY PRICE
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/PURNELL_MARTHA.JPG" height="240" width="200" alt="" />
@@ -320,15 +326,15 @@ JANE SWINEHART
 CATHERINE TAYLOR
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/THOMAS_MINDY.JPG" height="240" width="200" alt="" />
 <br />
 MINDY THOMAS
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/VANDE_KEMP_HENDRIKA.JPG" height="240" width="200" alt="" />
@@ -354,15 +360,16 @@ PAMELA VINING
 MARY WILLIAMS
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/WILLS_RACHEL.JPG" height="240" width="200" alt="" />
 <br />
 RACHEL WILLS
 </td>
 
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/WISENBAUGH_MARY.JPG" height="240" width="200" alt="" />
