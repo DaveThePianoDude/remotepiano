@@ -1,5 +1,23 @@
 <?php
 
+class Template {
+	private $args;
+	private $file;
+
+	public function __get($name) {
+		return $this->args[$name];
+	}
+
+	public function __construct($file, $args = array()) {
+		$this->file = $file;
+		$this->args = $args;
+	}
+
+	public function render() {
+		include $this->file;
+	}
+}
+
 /**
  * Class Login
  * An entire php login script in one file, one class.
@@ -343,26 +361,6 @@ class Login
     {
         return $this->user_is_logged_in;
     }
-
-
-// PHP 5
-	public class Template {
-		private $args;
-		private $file;
-
-		public function __get($name) {
-			return $this->args[$name];
-		}
-
-		public function __construct($file, $args = array()) {
-			$this->file = $file;
-			$this->args = $args;
-		}
-
-		public function render() {
-			include $this->file;
-		}
-	}
 	
     /**
      * Simple demo-"page" that will be shown when the user is logged in.
@@ -377,9 +375,9 @@ class Login
 
         echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
 		
-		//$main = new Template('choir.php', array('title' => 'Vienna Presbyterian Sanctuary Church Choir'));
+		$main = new Template('choir.php', array('title' => 'Vienna Presbyterian Sanctuary Church Choir'));
 		
-		//$main->render();
+		$main->render();
 		
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
     }
