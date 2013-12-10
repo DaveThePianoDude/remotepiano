@@ -344,6 +344,26 @@ class Login
         return $this->user_is_logged_in;
     }
 
+
+// PHP 5
+	class Template {
+		private $args;
+		private $file;
+
+		public function __get($name) {
+			return $this->args[$name];
+		}
+
+		public function __construct($file, $args = array()) {
+			$this->file = $file;
+			$this->args = $args;
+		}
+
+		public function render() {
+			include $this->file;
+		}
+	}
+	
     /**
      * Simple demo-"page" that will be shown when the user is logged in.
      * In a real application you would probably include an html-template here, but for this extremely simple
