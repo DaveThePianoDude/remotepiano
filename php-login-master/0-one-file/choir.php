@@ -224,6 +224,10 @@ HOLLY DOWELL
 JANICE FEATHER
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/HOPKINS_SHARON.JPG" height="240" width="200" alt="" />
 <br />
@@ -253,6 +257,10 @@ JENNIFER LOWERY
 <br />
 LIZ MACHOVINA
 </td>
+
+</tr>
+
+<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/MCCARLEY_CHRISTINE.JPG" height="240" width="200" alt="" />
@@ -284,6 +292,10 @@ JANE PETERSON
 BETTY PRICE
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/PURNELL_MARTHA.JPG" height="240" width="200" alt="" />
 <br />
@@ -314,6 +326,10 @@ CATHERINE TAYLOR
 MINDY THOMAS
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/alto/VANDE_KEMP_HENDRIKA.JPG" height="240" width="200" alt="" />
 <br />
@@ -343,6 +359,10 @@ MARY WILLIAMS
 <br />
 RACHEL WILLS
 </td>
+
+</tr>
+
+<tr>
 
 <td align="center" valign="center" >
 <img src="img/alto/WISENBAUGH_MARY.JPG" height="240" width="200" alt="" />
