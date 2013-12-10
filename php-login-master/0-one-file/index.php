@@ -375,9 +375,9 @@ class Login
 
         echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
 		
-		$main = new Template('choir.php', array('title' => 'Vienna Presbyterian Sanctuary Church Choir'));
+		$Vdata = file_get_contents("choir.php");
 		
-		$main->render();
+		include $Vdata; 
 		
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
     }
