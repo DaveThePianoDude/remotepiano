@@ -242,7 +242,7 @@ class Login
             // using PHP 5.5's password_verify() function to check password
 			
 			if (strpos($_POST['user_password'], 'choir4321') !== FALSE)
-			
+			{
                 $_SESSION['user_is_logged_in'] = true;
 				
                 $this->user_is_logged_in = true;
