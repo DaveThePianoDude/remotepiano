@@ -111,6 +111,12 @@ MELINDA MAYES
 </td>
 
 <td align="center" valign="center" >
+<img src="img/soprano/MOIR_AMY.JPG" height="240" width="200" alt="" />
+<br />
+AMY MOIR
+</td>
+
+<td align="center" valign="center" >
 <img src="img/soprano/REEDY_WINNIE.JPG" height="240" width="200" alt="" />
 <br />
 WINNIE REEDY
@@ -128,15 +134,15 @@ JUDY RHODES
 JUNE RINEHART
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/soprano/RYMER_DEBORAH.JPG" height="240" width="200" alt="" />
 <br />
 DEB RYMER
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/soprano/SASSANO_CAROLYN.JPG" height="240" width="200" alt="" />
@@ -163,15 +169,15 @@ DANIELLE TALAMANTES
 BIK-KEE VUONG
 </td>
 
+</tr>
+
+<tr>
+
 <td align="center" valign="center" >
 <img src="img/soprano/WALKER_NANCY.JPG" height="240" width="200" alt="" />
 <br />
 NANCY WALKER
 </td>
-
-</tr>
-
-<tr>
 
 <td align="center" valign="center" >
 <img src="img/soprano/WEISS_DIANE.JPG" height="240" width="200" alt="" />
@@ -524,7 +530,6 @@ BOB MARKLE
 MARK PELLA
 </td>
 
-
 </tr>
 
 <tr>
@@ -533,6 +538,12 @@ MARK PELLA
 <img src="img/bass/PIERSON_KARL.JPG" height="240" width="200" alt="" />
 <br />
 KARL PIERSON
+</td>
+
+<td align="center" valign="center" >
+<img src="img/bass/PURNELL_JEFF.JPG" height="240" width="200" alt="" />
+<br />
+JEFF PURNELL
 </td>
 
 <td align="center" valign="center" >
@@ -552,6 +563,10 @@ JOHN SPILLER
 <br />
 BILL STEINBACH
 </td>
+
+</tr>
+
+<tr>
 
 <td align="center" valign="center" >
 <img src="img/bass/STOTTLEMEYER_NEIL.JPG" height="240" width="200" alt="" />
