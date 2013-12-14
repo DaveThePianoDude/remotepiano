@@ -541,12 +541,6 @@ KARL PIERSON
 </td>
 
 <td align="center" valign="center" >
-<img src="img/bass/PURNELL_JEFF.JPG" height="240" width="200" alt="" />
-<br />
-JEFF PURNELL
-</td>
-
-<td align="center" valign="center" >
 <img src="img/bass/REED_AARON.JPG" height="240" width="200" alt="" />
 <br />
 AARON REED
@@ -564,10 +558,6 @@ JOHN SPILLER
 BILL STEINBACH
 </td>
 
-</tr>
-
-<tr>
-
 <td align="center" valign="center" >
 <img src="img/bass/STOTTLEMEYER_NEIL.JPG" height="240" width="200" alt="" />
 <br />
@@ -577,3 +567,25 @@ NEIL STOTTLEMEYER
 </tr>
 
 </table>
+
+<h3>ON SABBATICAL</h3>
+
+<table width="500" border="1" cellpadding="5">
+
+<td align="center" valign="center" >
+<img src="img/tenor/CREMER_KEN.JPG" height="240" width="200" alt="" />
+<br />
+KEN CREMER
+</td>
+
+<td align="center" valign="center" >
+<img src="img/bass/PURNELL_JEFF.JPG" height="240" width="200" alt="" />
+<br />
+JEFF PURNELL
+</td>
+
+
+</tr>
+
+</table>
+
