@@ -1,7 +1,7 @@
-<div style="font-size:36px">SANCTUARY CHOIR</div>
+<div style="font-size:36px;align:center">SANCTUARY CHOIR</div>
 <br>
-<div style="font-size:36px">VIENNA PRESBYTERIAN CHURCH</div>
-
+<div style="font-size:36px;align:center">VIENNA PRESBYTERIAN CHURCH</div>
+<hr>
 <h3>SOPRANO</h3>
 
 <table width="500" border="1" cellpadding="5">
