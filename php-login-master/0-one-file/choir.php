@@ -365,9 +365,9 @@ PAMELA VINING
 </td>
 
 <td align="center" valign="center" >
-<img src="img/soprano/WESOL_ERIN.JPG" height="240" width="200" alt="" />
+<img src="img/alto/WESOL_ERIN.JPG" height="240" width="200" alt="" />
 <br />
-DIANE WEISS
+ERIN WESOL
 </td>
 
 </tr>
