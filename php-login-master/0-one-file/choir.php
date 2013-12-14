@@ -1,3 +1,7 @@
+<div style="font-size:36px">SANCTUARY CHOIR</div>
+<br>
+<div style="font-size:36px">VIENNA PRESBYTERIAN CHURCH</div>
+
 <h3>SOPRANO</h3>
 
 <table width="500" border="1" cellpadding="5">
@@ -361,14 +365,21 @@ PAMELA VINING
 </td>
 
 <td align="center" valign="center" >
-<img src="img/alto/WILLIAMS_MARY.JPG" height="240" width="200" alt="" />
+<img src="img/soprano/WESOL_ERIN.JPG" height="240" width="200" alt="" />
 <br />
-MARY WILLIAMS
+DIANE WEISS
 </td>
 
 </tr>
 
 <tr>
+
+<td align="center" valign="center" >
+<img src="img/alto/WILLIAMS_MARY.JPG" height="240" width="200" alt="" />
+<br />
+MARY WILLIAMS
+</td>
+
 
 <td align="center" valign="center" >
 <img src="img/alto/WILLS_RACHEL.JPG" height="240" width="200" alt="" />
