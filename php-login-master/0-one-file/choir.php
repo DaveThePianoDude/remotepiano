@@ -579,6 +579,12 @@ KEN CREMER
 </td>
 
 <td align="center" valign="center" >
+<img src="img/soprano/PORTER_JENI.JPG" height="240" width="200" alt="" />
+<br />
+JENI PORTER
+</td>
+
+<td align="center" valign="center" >
 <img src="img/bass/PURNELL_JEFF.JPG" height="240" width="200" alt="" />
 <br />
 JEFF PURNELL
