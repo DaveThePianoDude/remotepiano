@@ -106,7 +106,13 @@ PATRICIA LITTLE
 JANE MACDUFF
 </td>
 
-</tr> <tr>
+</tr> 
+
+</table>
+<br>
+<table width="500" border="1" cellpadding="5">
+
+<tr>
 
 <td align="center" valign="center" >
 <img src="img/soprano/MAYES_MELINDA.JPG" height="240" width="200" alt="" />
@@ -337,10 +343,6 @@ CATHERINE TAYLOR
 </td>
 
 </tr>
-
-</table>
-
-<table>
 
 <tr>
 
