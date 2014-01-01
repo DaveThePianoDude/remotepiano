@@ -1,6 +1,6 @@
 <?php
  
-//require_once ('functions.php');
+require_once ('functions.php');
  
 // Check to see if we're already logged in or if we have a special status div to report
 //$loginDiv = checkLoggedIn (Page::LOGIN);
