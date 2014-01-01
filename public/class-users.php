@@ -14,9 +14,8 @@ class Users
  
       try
       {      
-               $userID = 1;
-           
- 
+         $userID = 1;
+         $username = 'viennapres';  
          $dbh = null;
       }
       catch (PDOException $e)
