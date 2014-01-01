@@ -1,6 +1,5 @@
 <?php
  
-//require_once ('class-databasehelpers.php');
 require_once ('class-users.php');
 require_once ('functions.php');
 require_once ('pages.php');

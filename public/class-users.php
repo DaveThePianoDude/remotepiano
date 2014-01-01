@@ -13,33 +13,9 @@ class Users
       $digest = '';
  
       try
-      {
-         $dbh = DatabaseHelpers::getDatabaseConnection();
- 
-		if is_null($dbh) echo 'ERR: db conn is null.";
- 
-         // Build a prepared statement that looks for a row containing the given
-         // username/password pair
-         $stmt = $dbh->prepare('SELECT UserID, Password FROM Users WHERE ' .
-                               'Username=:username ' .
-                               'LIMIT 1');
- 
-         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
- 
-         $success = $stmt->execute();
- 
-         // If results were returned from executing the MySQL command, we
-         // have found the user
-         if ($success)
-         {
-            // Ensure provided password matches stored hash
-            $userData = $stmt->fetch();
-            $digest = $userData['Password'];
-            if (crypt ($password, $digest) == $digest)
-            {
-               $userID = $userData['UserID'];
-            }
-         }
+      {      
+               $userID = 1;
+           
  
          $dbh = null;
       }

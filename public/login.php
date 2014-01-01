@@ -3,7 +3,7 @@
 require_once ('functions.php');
  
 // Check to see if we're already logged in or if we have a special status div to report
-//$loginDiv = checkLoggedIn (Page::LOGIN);
+$loginDiv = checkLoggedIn (Page::LOGIN);
  
 ?>
  
@@ -18,7 +18,7 @@ require_once ('functions.php');
          <input name="password" type="password" /><br />
          <input id="remember" name="remember" type="checkbox" />
          <label for="remember">Remember me</label><br />
-        
+			<?php echo $loginDiv ?>  
          <input type="submit" value="Login" />
       </form>
    </body>
