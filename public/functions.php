@@ -116,7 +116,9 @@ function checkLoggedIn($page)
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
  
-               header ('Location: ./');
+ 
+				echo ($userData[0]); 
+               //header ('Location: ./');
  
                exit;
             }
