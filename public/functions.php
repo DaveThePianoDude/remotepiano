@@ -43,14 +43,7 @@ function checkLoggedIn($page)
  
    // Check if we're already logged in, and check session information against cookies
    // credentials to protect against session hijacking
-   if (isset ($_COOKIE['project-name']['userID']) &&
-       crypt($_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'],
-             $_COOKIE['project-name']['secondDigest']) ==
-       $_COOKIE['project-name']['secondDigest'] &&
-       (!isset ($_COOKIE['project-name']['username']) ||
-        (isset ($_COOKIE['project-name']['username']) &&
-         Users::checkCredentials($_COOKIE['project-name']['username'],
-                                 $_COOKIE['project-name']['digest']))))
+   if (isset ($_COOKIE['project-name']['userID']) && Users::checkCredentials($_COOKIE['project-name']['username'], $_COOKIE['project-name']['digest']) )
    {
       // Regenerate the ID to prevent session fixation
       session_regenerate_id ();
@@ -75,7 +68,7 @@ function checkLoggedIn($page)
       // If we're not already the login page, redirect us to the login page
       if ($page != Page::LOGIN)
       {
-         header ('Location: insecure.php');
+         header ('Location: login.php');
  
          exit;
       }
@@ -119,7 +112,7 @@ function checkLoggedIn($page)
  
 				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
 				
-                header ('Location: index.php');
+                header ('Location: ./')
  
                exit;
 
