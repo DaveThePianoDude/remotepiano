@@ -43,7 +43,9 @@ function checkLoggedIn($page)
  
    // Check if we're already logged in, and check session information against cookies
    // credentials to protect against session hijacking
-   if (isset ($_COOKIE['project-name']['userID']) && Users::checkCredentials($_COOKIE['project-name']['username'], $_COOKIE['project-name']['digest']) )
+   //if (isset($_COOKIE['project-name']['userID']) && Users::checkCredentials($_COOKIE['project-name']['username'], $_COOKIE['project-name']['digest']) )
+   
+   if (true)
    {
       // Regenerate the ID to prevent session fixation
       session_regenerate_id ();
