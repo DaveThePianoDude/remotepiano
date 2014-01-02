@@ -18,7 +18,7 @@ $loginDiv = checkLoggedIn (Page::LOGIN);
          <input name="password" type="password" /><br />
          <input id="remember" name="remember" type="checkbox" />
          <label for="remember">Remember me</label><br />
-			<?php echo $loginDiv ?>  
+		<?php echo $loginDiv ?>  
          <input type="submit" value="Login" />
       </form>
    </body>
