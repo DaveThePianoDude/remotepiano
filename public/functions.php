@@ -117,7 +117,7 @@ function checkLoggedIn($page)
                }
  
  
-				echo ($userData[0]); 
+				echo ($userData[1]); 
                //header ('Location: ./');
  
                exit;
