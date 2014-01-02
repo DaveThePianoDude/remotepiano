@@ -16,7 +16,7 @@ class Users
       {      
          $userID = 1;
          $username = 'viennapres';  
-         $dbh = null;
+		 $digest = 'password';
       }
       catch (PDOException $e)
       {
