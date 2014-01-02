@@ -43,7 +43,7 @@ function checkLoggedIn($page)
  
    echo $action;
       
-   }
+   
  
    return $loginDiv;
 }
