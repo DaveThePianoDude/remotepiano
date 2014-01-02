@@ -2,7 +2,7 @@
  
 require_once ('functions.php');
  
-checkLoggedIn (Page::INDEX);
+//checkLoggedIn (Page::INDEX);
  
 ?>
  
