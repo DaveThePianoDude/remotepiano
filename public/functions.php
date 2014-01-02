@@ -119,7 +119,7 @@ function checkLoggedIn($page)
  
 				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
 				
-                header ('Location: index.php');
+                header ('Location: login.php');
  
                exit;
 
