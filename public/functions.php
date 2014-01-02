@@ -86,6 +86,11 @@ function checkLoggedIn($page)
       {
          case 'login':
          {
+		 
+		  $userData = Users::checkCredentials (stripslashes ($_POST['login-username']),
+                                                 stripslashes ($_POST['password']));
+            if ($userData[0] != 0)
+            {
 				$userID = '1';
 				
 				$username = $_POST['login-username'];  
@@ -117,17 +122,19 @@ function checkLoggedIn($page)
                   DatabaseHelpers::blowfishCrypt($_SERVER['REMOTE_ADDR'] .
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
- 
-				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
-				
-                header ('Location: ./');
- 
-				//echo 'got here';
+				header ('Location: ./');
  
                exit;
-
+            }
+            else
+            {
+               $loginDiv = '<div id="login-box" class="error">The username or password ' .
+                           'you entered is incorrect.</div>';
+            }
+			
             break;
          }
+		 
          // Destroy the session if we received a logout or don't know the action received
          case 'logout':
          default:
