@@ -9,18 +9,9 @@ class Users
       // A UserID of 0 from the database indicates that the username/password pair
       // could not be found in the database
       $userID = 0;
-      $digest = '';
+      $digest = 'password';
 
-      try
-      {      
-         $userID = 1;
-		 $digest = 'password';
-      }
-      catch (PDOException $e)
-      {
-         $userID = 0;
-         $digest = '';
-      }
+		if ($username == 'viennapres') $userID = 1;
  
       return array ($userID, $username, $digest);
    }
