@@ -22,15 +22,6 @@ class DatabaseHelpers
  
       return crypt ($password, $salt);
    }
- 
-   public function getDatabaseConnection()
-   {
-      $dbh = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
- 
-      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 
-      return $dbh;
-   }
 }
  
 function isSecuredPage($page)
@@ -127,9 +118,9 @@ function checkLoggedIn($page)
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
  
-				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
+			$loginDiv = '<div id="login-box" class="error">Got here.</div>';
 				
-               //header ('Location: ./');
+               header ('Location: ./');
  
                exit;
             }

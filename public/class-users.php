@@ -1,6 +1,5 @@
 <?php
  
-//require_once ('class-databasehelpers.php');
 require_once ('class-userdata.php');
  
 class Users
@@ -11,11 +10,11 @@ class Users
       // could not be found in the database
       $userID = 0;
       $digest = '';
+	  $username = 'viennapres';
  
       try
       {      
          $userID = 1;
-         $username = 'viennapres';  
 		 $digest = 'password';
       }
       catch (PDOException $e)
