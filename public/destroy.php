@@ -8,7 +8,6 @@
  
     // Destory the session
     session_destroy ();
- 
-    $loginDiv = '<div id="login-box" class="info">Thank you. Come again!</div>';
- 
+
+	echo 'session destroyed.';
  ?>
