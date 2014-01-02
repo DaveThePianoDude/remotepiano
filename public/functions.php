@@ -72,8 +72,7 @@ function checkLoggedIn($page)
  
       // Only redirect us if we're not already on a secured page and are not
       // receiving a logout request
-      if (!isSecuredPage ($page) &&
-          $action != 'logout')
+      if (!isSecuredPage ($page) && $action != 'logout')
       {
          header ('Location: ./');
  
@@ -128,7 +127,9 @@ function checkLoggedIn($page)
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
  
-               header ('Location: MyIndex.php');
+				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
+				
+               //header ('Location: ./');
  
                exit;
             }
