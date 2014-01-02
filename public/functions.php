@@ -43,9 +43,12 @@ function checkLoggedIn($page)
  
    // Check if we're already logged in, and check session information against cookies
    // credentials to protect against session hijacking
-   //if (isset($_COOKIE['project-name']['userID']) && Users::checkCredentials($_COOKIE['project-name']['username'], $_COOKIE['project-name']['digest']) )
-   
-   if (true)
+   if (isset ($_COOKIE['project-name']['userID']) &&
+        
+       (!isset ($_COOKIE['project-name']['username']) ||
+        (isset ($_COOKIE['project-name']['username']) &&
+         Users::checkCredentials($_COOKIE['project-name']['username'],
+                                 $_COOKIE['project-name']['digest']))))
    {
       // Regenerate the ID to prevent session fixation
       session_regenerate_id ();
@@ -114,7 +117,9 @@ function checkLoggedIn($page)
  
 				$loginDiv = '<div id="login-box" class="error">Got here.</div>';
 				
-                header ('Location: ./')
+               //header ('Location: ./');
+ 
+				echo 'got here';
  
                exit;
 
