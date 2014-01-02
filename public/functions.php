@@ -75,7 +75,7 @@ function checkLoggedIn($page)
       // If we're not already the login page, redirect us to the login page
       if ($page != Page::LOGIN)
       {
-         header ('Location: login.php');
+         header ('Location: insecure.php');
  
          exit;
       }
