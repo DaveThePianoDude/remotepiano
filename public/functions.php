@@ -78,7 +78,7 @@ function checkLoggedIn($page)
          exit;
       }
    }
- 
+   
    // If we're not already logged in, check if we're trying to login or logout
    if ($page == Page::LOGIN && $action != '')
    {
@@ -86,18 +86,11 @@ function checkLoggedIn($page)
       {
          case 'login':
          {
-		 
-		  $userData = Users::checkCredentials (stripslashes ($_POST['login-username']),
+            $userData = Users::checkCredentials (stripslashes ($_POST['login-username']),
                                                  stripslashes ($_POST['password']));
             if ($userData[0] != 0)
             {
-				$userID = '1';
-				
-				$username = $_POST['login-username'];  
-
-				$password = stripslashes ($_POST['password']);				
-
-               $_SESSION['project-name']['userID'] = $userID;
+               $_SESSION['project-name']['userID'] = $userData[0];
                $_SESSION['project-name']['ip'] = $_SERVER['REMOTE_ADDR'];
                $_SESSION['project-name']['userAgent'] = $_SERVER['HTTP_USER_AGENT'];
                if (isset ($_POST['remember']))
@@ -105,24 +98,25 @@ function checkLoggedIn($page)
                   // We set a cookie if the user wants to remain logged in after the
                   // browser is closed
                   // This will leave the user logged in for 168 hours, or one week
-                  setcookie('project-name[userID]', $userID, time () + (3600 * 168));
+                  setcookie('project-name[userID]', $userData[0], time () + (3600 * 168));
                   setcookie('project-name[username]',
-                  $username, time () + (3600 * 168));
-                  setcookie('project-name[digest]', $password, time () + (3600 * 168));
+                  $userData[1], time () + (3600 * 168));
+                  setcookie('project-name[digest]', $userData[2], time () + (3600 * 168));
                   setcookie('project-name[secondDigest]',
                   DatabaseHelpers::blowfishCrypt($_SERVER['REMOTE_ADDR'] .
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
                else
                {
-                  setcookie('project-name[userID]', $userID, false);
+                  setcookie('project-name[userID]', $userData[0], false);
                   setcookie('project-name[username]', '', false);
                   setcookie('project-name[digest]', '', false);
                   setcookie('project-name[secondDigest]',
                   DatabaseHelpers::blowfishCrypt($_SERVER['REMOTE_ADDR'] .
                                                  $_SERVER['HTTP_USER_AGENT'], 10), time () + (3600 * 168));
                }
-				header ('Location: ./');
+ 
+               header ('Location: ./');
  
                exit;
             }
@@ -131,7 +125,6 @@ function checkLoggedIn($page)
                $loginDiv = '<div id="login-box" class="error">The username or password ' .
                            'you entered is incorrect.</div>';
             }
-			
             break;
          }
 		 
