@@ -4,7 +4,7 @@
 // a const with an expression, define our constants outside
 // the Page class, then use these variables within the class
 define ('LOGIN', 'Login');
-define ('INDEX', 'MyIndex');
+define ('INDEX', 'Index');
  
 class Page
 {
