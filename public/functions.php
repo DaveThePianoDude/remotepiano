@@ -86,9 +86,11 @@ function checkLoggedIn($page)
       {
          case 'login':
          {
-				$password = 'password';
+				$userID = '1';
 				
-				$userID = $_POST['login-username'];
+				$username = $_POST['login-username'];  
+
+				$password = stripslashes ($_POST['password']);				
 
                $_SESSION['project-name']['userID'] = $userID;
                $_SESSION['project-name']['ip'] = $_SERVER['REMOTE_ADDR'];
@@ -100,7 +102,7 @@ function checkLoggedIn($page)
                   // This will leave the user logged in for 168 hours, or one week
                   setcookie('project-name[userID]', $userID, time () + (3600 * 168));
                   setcookie('project-name[username]',
-                  $userData[1], time () + (3600 * 168));
+                  $username, time () + (3600 * 168));
                   setcookie('project-name[digest]', $password, time () + (3600 * 168));
                   setcookie('project-name[secondDigest]',
                   DatabaseHelpers::blowfishCrypt($_SERVER['REMOTE_ADDR'] .
