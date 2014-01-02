@@ -10,8 +10,7 @@ class Users
       // could not be found in the database
       $userID = 0;
       $digest = '';
-	  $username = 'viennapres';
- 
+
       try
       {      
          $userID = 1;
