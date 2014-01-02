@@ -86,8 +86,9 @@ function checkLoggedIn($page)
       {
          case 'login':
          {
-			$userID = $_POST['login-username']);
-            $password = stripslashes ($_POST['password']);
+				$password = 'password';
+				
+				$userID = $_POST['login-username'];
 
                $_SESSION['project-name']['userID'] = $userID;
                $_SESSION['project-name']['ip'] = $_SERVER['REMOTE_ADDR'];
