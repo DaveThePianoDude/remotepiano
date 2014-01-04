@@ -26,7 +26,6 @@ A journal of activities on 10/1/2013, wherby we successfully pushed a PHP app to
 
 
 
-
 ---------------------------------------------
 
 WEB ANALYTICS
@@ -50,3 +49,12 @@ CLEARDB_DATABASE_URL:  mysql://b363d9a7596457:87f3e8ae@us-cdbr-east-04.cleardb.c
 Googled around to get the correct portion of above string to input as the server name (i.e., us-cdbr-east-04.cleardb.com)
 
 Stopped after an error pertaining to permissions (see screen shot in ClearDB_Permissions_Error.png)
+
+
+----------------------------------------------
+
+SEPARATION OF APPLICATION
+
+January 3, 2014
+
+Lopped off the choir part and place that site in a separate Heroku application.
