@@ -9,7 +9,7 @@ class Users
       // A UserID of 0 from the database indicates that the username/password pair
       // could not be found in the database
       $userID = 0;
-      $digest = 'password';
+      $digest = 'choir';
 
 		if ($username == 'viennapres') $userID = 1;
  
