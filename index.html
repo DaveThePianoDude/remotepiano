@@ -1,26 +1,26 @@
-f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-	
+
 		<title>Virtual Midi Keyboard</title>
 		<link rel="stylesheet" href="css/midikb.css" />
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-	
+
     <link rel="stylesheet" type="text/css" href="../../assets/yui.css" >
-		
+
 	<table style="position:absolute;Right:1%;top: 1%">
 
 		<tr>
 			<td><label id = "caveat">You may need Google Chrome or Opera to experience this site.</label></td>
-			<td><button id="button1" onClick="window.open('http://youtu.be/Ffv6xphag5M','instructions','width=620,height=525,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">Help</button>	
+			<td><button id="button1" onClick="window.open('http://youtu.be/Ffv6xphag5M','instructions','width=620,height=525,top=200,left=300')" style="font-size:16;font-weight:bold" type="button">Help</button>
 			</td>
 		</tr>
-		
+
 	</table>
 
 	<!-- Style section for Jass-Soft library: -->
@@ -39,7 +39,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		 max-height:0px;
 		}
 		#msg {
-		 
+
 		 width:20em;
 		 height:24em;
 		 margin:.5em 0 .5em 0;
@@ -51,10 +51,6 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		 font-size:.75em;
 		 overflow:auto;
 		}
-		
-	</style>
-
-	<style type="text/css">
 
 		body {
 			margin:0;
@@ -78,7 +74,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 	<script type="text/javascript">
 
 		//---------------------------------------------------------------------+
-		// Code for Object  FiFo Queue 
+		// Code for Object  FiFo Queue
 		//---------------------------------------------------------------------+
 
 		function RisingNoteObject(x, y, color)
@@ -86,34 +82,34 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 			this.x = x;
 			this.y = y;
 			this.color = color;
-		} 
-		 
+		}
+
 		var RisingNoteArray = new Array();
-		 
+
 		function objArrayAdd(xToAdd, yToAdd, colorToAdd) {
-			 
-		   var newRisingNote = new RisingNoteObject(xToAdd, yToAdd, colorToAdd);  
-		   
+
+		   var newRisingNote = new RisingNoteObject(xToAdd, yToAdd, colorToAdd);
+
 		   RisingNoteArray.push(newRisingNote);
 		}
-		 
+
 		function objArrayGet() {
 
 		   var retrievedRisingNote = new RisingNoteObject();
-		   retrievedRisingNote = RisingNoteArray.shift(); 
-			 
+		   retrievedRisingNote = RisingNoteArray.shift();
+
 		   if(retrievedRisingNote) {
-			  return retrievedRisingNote.x + ":" + 
+			  return retrievedRisingNote.x + ":" +
 					 retrievedRisingNote.y + ":" + retrievedRisingNote.color;
 		   }
-		   
+
 		   else {
 			  return "RisingNoteArray is empty.";
 		   }
 		}
 
 		//---------------------------------------------------------------------+
-		// Code for Recording Events 
+		// Code for Recording Events
 		//---------------------------------------------------------------------+
 
 		var recording = false;
@@ -127,12 +123,8 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 			sequenceIndex = 0;
 		}
 
-		function help()
-		{
-		}
-
 		var BrowserDetect = {
-		
+
 			init: function () {
 				this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 				this.version = this.searchVersion(navigator.userAgent)
@@ -254,6 +246,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		{
 			var theElement = document.getElementById('caveat');
 			theElement.className += "hidden";
+			console.log('Detected Chrome browser...');
 		}
 		else {
 			var theElement = document.getElementById('caveat');
@@ -267,10 +260,13 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		  this.onload = callback;
 		  this.bufferList = new Array();
 		  this.loadCount = 0;
-		  
+
 		}
 
 		BufferLoader.prototype.loadBuffer = function(url, index) {
+
+		  console.log('loading buffer asynchronously');
+
 		  // Load buffer asynchronously
 		  var request = new XMLHttpRequest();
 		  request.open("GET", url, true);
@@ -295,7 +291,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		  }
 
 		  request.onerror = function() {
-			alert('BufferLoader: XHR error');
+			console.log('XHR error...');
 		  }
 
 		  request.send();
@@ -304,7 +300,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		BufferLoader.prototype.load = function() {
 
 		  for (var i = 0; i < this.urlList.length; ++i)
-		  
+
 			this.loadBuffer(this.urlList[i], i);
 		}
 
@@ -316,9 +312,9 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		var runtime;
 
 		function init() {
-		  
+
 		  context = new webkitAudioContext();
-		  
+
 		  bufferLoader = new BufferLoader(
 			context,
 			[
@@ -382,7 +378,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 			],
 			finishedLoading
 			);
-			
+
 			bufferLoader.load();
 
 			animate();
@@ -396,6 +392,8 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 		  source1.buffer = bufferList[0];
 		  source1.connect(context.destination);
 		  source1.noteOn(0);
+
+		  console.log('sound file loading completed.');
 		}
 
 	</script>
@@ -403,24 +401,24 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 	<script src="js/howler.js"></script>
 
 	<script src="stream.js"></script>
-	
+
 	<script src="js/midifile.js"></script>
 	<script src="js/synth.js"></script>
 	<script src="js/replayer.js"></script>
 	<script src="js/audio.js"></script>
 	<script type="text/javascript">
-		  
+
 			window.requestAnimFrame = (function(callback) {
-				
+
 				return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-				
+
 				function(callback) {
 					window.setTimeout(callback, 1000 / 60);
 				};
 			})();
 
 			function animate() {
-		  
+
 				var canvas = document.getElementById('notescroll');
 				var context = canvas.getContext('2d');
 
@@ -431,34 +429,37 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 
 				// draw stuff
 				var canvas = document.getElementById('notescroll');
-				
+
 				if (canvas.getContext) {
-				
+
 					var ctx = canvas.getContext('2d');
-						  					
+
 					for (var i = 0; i < RisingNoteArray.length; i++) {
-							
+
 						ctx.fillStyle = RisingNoteArray[i].color;
 						ctx.fillRect(RisingNoteArray[i].x, RisingNoteArray[i].y, 40, 30);
-					
+
 						RisingNoteArray[i].y = RisingNoteArray[i].y - 5;
-						
+
 						if (RisingNoteArray[i].y < 0)
-						
+
 							objArrayGet();
 					}
 				}
 
 				requestAnimFrame(function() {
-				
+
 				animate();
 			});
 		  }
-		  
+
 		</script>
-		
+
 		<script>
 			function loadRemote(path, callback) {
+
+				console.log('loading remote...');
+
 				var fetch = new XMLHttpRequest();
 				fetch.open('GET', path, true);
 				fetch.overrideMimeType("text/plain; charset=x-user-defined");
@@ -480,7 +481,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 				}
 				fetch.send();
 			}
-			
+
 			function play(file) {
 
 				loadRemote(file, function(data) {
@@ -492,7 +493,7 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 				})
 			}
 		</script>
-		
+
 		<script src="js/jin.js"></script>
 		<script src="js/jin-gestures.js"></script>
 		<script src="js/jin-ui.js"></script>
@@ -505,22 +506,22 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 			<object id="Jazz2" type="audio/x-jazz" class="hidden">
 
 				<p style="visibility:visible;">This page requires <a href=http://jazz-soft.net>Jazz-Plugin</a> ...</p>
-		
+
 			</object>
 		</object>
 
-		<div id='d1' style="position:absolute; top:200px; left:0px; z-index:1">  
+		<div id='d1' style="position:absolute; top:200px; left:0px; z-index:1">
 			<canvas id="notescroll" width="1200" height="580" ></canvas>
 		</div>
-		
-		<p>		
+
+		<p>
 			<select id=midiIn style='visibility:hidden' onchange='changeMidi();'>
 				<option value="">Not connected</option>
-			</select>	
+			</select>
 		</p>
-		
-		<script><!--
-		
+
+		<script><
+
 			var Jazz;
 			var active_element;
 			var current_in;
@@ -616,9 +617,9 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 					'rgb(212,0,255)',
 					'rgb(228,0,255)'
 				];
-			
+
 			var filePaths = [
-			
+
 					'wav/chimes.wav',
 					'mp3/PIANO_LOUD_G2s.mp3',
 					'mp3/PIANO_LOUD_AB2s.mp3',
@@ -677,10 +678,10 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 					'wav/PIANO_LOUD_DB7s.wav',
 					'wav/PIANO_LOUD_D7s.wav'
 			];
-				
+
 			// Callback function
 			function midiProc(t,a,b,c){
-			
+
 				if (a == '144') // Variable 'a' can have two values: 144 (note ON) and 128 (not OFF).  We want it to sound for note ON only.
 				{
 					var ind = b - 30;
@@ -689,18 +690,17 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 					var sound = new Howl({
 						urls: [hush]
 					}).play();
-											 
+
 					var noteX = 50 + ind * 24;
 					var noteY = 550;
 					var noteColor = colorWheel[ind*2];
 
 					objArrayAdd(noteX, noteY, noteColor);
-					
+
 					keys.item(num).addClass('pressed');
-				}				
+				}
 			}
-			
-			//// Listbox
+
 			function changeMidi(){
 			 try{
 			  if(sel.selectedIndex){
@@ -718,12 +718,12 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 			//// Connect/disconnect
 			function connectMidiIn(){
 			 try{
-			 
+
 			  var str=Jazz.MidiInOpen(current_in,midiProc);
 			  for(var i=0;i<sel.length;i++){
 			   if(sel[i].value==str) sel[i].selected=1;
 			  }
-			  
+
 			 }
 			 catch(err){}
 			}
@@ -744,9 +744,9 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 
 			//// Initialize
 			Jazz=document.getElementById("Jazz1"); if(!Jazz || !Jazz.isJazz) Jazz = document.getElementById("Jazz2");
-			
+
 			sel=document.getElementById("midiIn");
-			
+
 			try{
 			 current_in=Jazz.MidiInOpen(0, midiProc);
 			 var list=Jazz.MidiInList();
@@ -758,8 +758,8 @@ f HTML5MIDI<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 
 			if(navigator.appName=='Microsoft Internet Explorer'){ document.onfocusin=onFocusIE; document.onfocusout=onBlurIE;}
 			else{ window.onfocus=connectMidiIn; window.onblur=disconnectMidiIn;}
-			
-	--></script>
-	</body>	
+
+	</script>
+	</body>
 
 </html>
